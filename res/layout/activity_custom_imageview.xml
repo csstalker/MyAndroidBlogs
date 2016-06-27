@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bqt="http://schemas.android.com/apk/res/com.bqt.myview"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="5dp" >
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon" />
+
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="5dp"
+        android:src="@drawable/icon" />
+
+    <com.bqt.myview.CustomImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        bqt:src="@drawable/icon"
+        bqt:types="circle" />
+
+    <com.bqt.myview.CustomImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="5dp"
+        bqt:src="@drawable/icon"
+        bqt:types="circle_with_stroke" />
+
+    <com.bqt.myview.CustomImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        bqt:radius="10dp"
+        bqt:src="@drawable/icon"
+        bqt:types="round" />
+
+</LinearLayout>

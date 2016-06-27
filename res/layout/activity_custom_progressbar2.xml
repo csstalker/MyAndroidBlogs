@@ -1,0 +1,88 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bqt="http://schemas.android.com/apk/res/com.bqt.myview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <com.bqt.myview.HorizontalProgressBarWithNumber
+            android:id="@+id/id_progressbar01"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:progress="10" />
+
+        <com.bqt.myview.HorizontalProgressBarWithNumber
+            android:layout_width="300dp"
+            android:layout_height="10dp"
+            android:layout_margin="5dp"
+            android:progress="10"
+            bqt:progress_reached_bar_height="10dp"
+            bqt:progress_text_color="#ff2903FC"
+            bqt:progress_unreached_color="#ffBCB4E8" />
+
+        <com.bqt.myview.HorizontalProgressBarWithNumber
+            android:layout_width="200dp"
+            android:layout_height="30dp"
+            android:layout_margin="5dp"
+            android:background="#000"
+            android:progress="30"
+            bqt:progress_text_color="#ff0"
+            bqt:progress_text_size="30dp"
+            bqt:progress_unreached_bar_height="10dp"
+            bqt:progress_unreached_color="#0f0" />
+
+        <com.bqt.myview.HorizontalProgressBarWithNumber
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="#2000"
+            android:progress="10"
+            bqt:progress_text_color="#ffF53B03"
+            bqt:progress_text_size="15sp"
+            bqt:progress_unreached_color="#fff" />
+
+        <com.bqt.myview.RoundProgressBarWidthNumber
+            android:id="@+id/id_progress02"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="5dp"
+            android:progress="10" />
+
+        <com.bqt.myview.RoundProgressBarWidthNumber
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="#fff"
+            android:progress="30"
+            bqt:progress_radius="50dp"
+            bqt:progress_text_color="#ffF53B03"
+            bqt:progress_text_size="20sp" />
+
+        <com.bqt.myview.RoundProgressBarWidthNumber
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="#300f"
+            android:progress="50"
+            bqt:progress_text_color="#00f"
+            bqt:progress_text_size="25sp"
+            bqt:progress_unreached_color="#3000" />
+
+        <com.bqt.myview.RoundProgressBarWidthNumber
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="#30f0"
+            android:progress="70"
+            bqt:progress_radius="15dp"
+            bqt:progress_reached_color="#f00"
+            bqt:progress_text_color="#000"
+            bqt:progress_unreached_color="#0f0" />
+    </LinearLayout>
+
+</ScrollView>

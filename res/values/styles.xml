@@ -1,0 +1,36 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="AppBaseTheme" parent="Theme.AppCompat.Light"></style>
+
+    <style name="AppTheme" parent="AppBaseTheme"></style>
+
+    <style name="text_style1">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">2dp</item>
+        <item name="android:background">@drawable/flowlayout_shape1</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:paddingLeft">5dp</item>
+        <item name="android:paddingRight">5dp</item>
+        <item name="android:textSize">11sp</item>
+    </style>
+
+    <style name="text_style2">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">2dp</item>
+        <item name="android:background">@drawable/flowlayout_shape2</item>
+        <item name="android:textColor">#880</item>
+        <item name="android:textSize">11sp</item>
+    </style>
+
+    <style name="text_style3">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">2dp</item>
+        <item name="android:background">@drawable/flowlayout_shape3</item>
+        <item name="android:textColor">#43BBE7</item>
+        <item name="android:textSize">11sp</item>
+    </style>
+
+</resources>

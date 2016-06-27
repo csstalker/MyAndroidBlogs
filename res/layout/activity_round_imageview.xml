@@ -1,0 +1,65 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bqt="http://schemas.android.com/apk/res/com.bqt.myview"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#2000"
+    android:orientation="vertical"
+    android:padding="10dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <com.bqt.myview.RoundImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/icon"
+            bqt:borderRadius="10dp"
+            bqt:type="circle" />
+
+        <com.bqt.myview.RoundImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/icon" />
+
+        <com.bqt.myview.RoundImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/icon" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <com.bqt.myview.RoundImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/icon"
+            bqt:borderRadius="10dp"
+            bqt:type="round" />
+
+        <com.bqt.myview.RoundImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/icon"
+            bqt:borderRadius="10dp"
+            bqt:type="round" />
+
+        <com.bqt.myview.RoundImageView
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/icon"
+            bqt:borderRadius="15dp"
+            bqt:type="round" />
+    </LinearLayout>
+
+</LinearLayout>

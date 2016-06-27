@@ -1,0 +1,34 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bqt="http://schemas.android.com/apk/res/com.bqt.myview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:padding="5dp" >
+
+    <com.bqt.myview.CustomVolumControlBar
+        android:layout_width="80dp"
+        android:layout_height="80dp" />
+
+    <com.bqt.myview.CustomVolumControlBar
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="5dp"
+        bqt:cb_bg="@drawable/icon"
+        bqt:circleWidth="8dp"
+        bqt:dotCount="12"
+        bqt:firstColor="#60f0"
+        bqt:secondColor="#f00"
+        bqt:splitSize="15" />
+
+    <com.bqt.myview.CustomVolumControlBar
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="5dp"
+        bqt:cb_bg="@drawable/icon"
+        bqt:circleWidth="5dp"
+        bqt:dotCount="24"
+        bqt:firstColor="#ADC6E5"
+        bqt:secondColor="#0362DB"
+        bqt:splitSize="10" />
+
+</LinearLayout>

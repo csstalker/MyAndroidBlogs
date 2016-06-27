@@ -1,0 +1,29 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bqt="http://schemas.android.com/apk/res/com.bqt.myview"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:padding="5dp" >
+
+    <com.bqt.myview.CustomProgressBar
+        android:id="@+id/pb1"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        bqt:circleWidth="5dp"
+        bqt:firstColor="#D4F668"
+        bqt:secondColor="#2F9DD2"
+        bqt:speed="20" />
+
+    <com.bqt.myview.CustomProgressBar
+        android:id="@+id/pb2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        bqt:circleWidth="30dp"
+        bqt:firstColor="#16A3FA"
+        bqt:secondColor="#D20F02"
+        bqt:speed="10" />
+
+</LinearLayout>
