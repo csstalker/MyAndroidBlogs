@@ -18,8 +18,8 @@ WebView JSBridge web JS桥 演示 原理 测试
 Demo位置：https://github.com/baiqiantao/JsBridge.git 
 [GitHub](https://github.com/lzyzsd/JsBridge)
 
-从微信jsBridge文件获取了灵感并修改了一些错误修复及功能增强。
-该项目在Java和JavaScript之间架起了一座桥梁。
+从微信jsBridge文件获取了灵感并修改了一些错误修复及功能增强。  
+该项目在Java和JavaScript之间架起了一座桥梁。  
 它提供了从js调用Java代码并从java调用js代码的安全方便的方式。
 ![mark](http://pfpk8ixun.bkt.clouddn.com/blog/181021/ig0H31Bajf.png?imageslim)
 
