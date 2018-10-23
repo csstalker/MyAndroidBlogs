@@ -1,4 +1,4 @@
-| Markdown版本笔记 | 我的GitHub首页 | 我的博客 | 我的微信 | 我的邮箱 |
+﻿| Markdown版本笔记 | 我的GitHub首页 | 我的博客 | 我的微信 | 我的邮箱 |
 | :------------: | :------------: | :------------: | :------------: | :------------: |
 | [MyAndroidBlogs][Markdown] | [baiqiantao][GitHub] | [baiqiantao][博客] | bqt20094 | baiqiantao@sina.com |
 
@@ -69,6 +69,12 @@ public static void modifyFileSuffix(File from) {
             }
             file.delete();
         }
+    }
+
+    listFiles = from.listFiles();
+    if (listFiles == null || listFiles.length == 0) {
+        System.out.println("----------------------" + from.getName() + "的文件全部不符合要求");
+        from.delete();//删除空文件夹
     }
 }
 ```
