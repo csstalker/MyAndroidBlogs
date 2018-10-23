@@ -6,16 +6,16 @@
 [GitHub]:https://github.com/baiqiantao
 [博客]:http://www.cnblogs.com/baiqiantao/
 
-RxJava RxLifecycle 生命周期 内存泄漏 MD  
-[Demo地址](https://github.com/baiqiantao/RxJavaDemo.git)  
-[GitHub](https://github.com/trello/RxLifecycle)  
+RxJava RxLifecycle 生命周期 内存泄漏 MD
+[Demo地址](https://github.com/baiqiantao/RxJavaDemo.git)
+[GitHub](https://github.com/trello/RxLifecycle)
 ***
 目录
 ===
 [TOC]
 
 # 简介
-另一个功能与此库类似、核心设计借鉴此库、此库作者也参与设计、此库作者认为比此库好、但是星星比较少、国内不流行、上手比较难的库：https://github.com/uber/AutoDispose  
+另一个功能与此库类似、核心设计借鉴此库、此库作者也参与设计、此库作者认为比此库好、但是星星比较少、国内不流行、上手比较难的库：https://github.com/uber/AutoDispose
 
 ## 添加依赖
 ```
@@ -43,11 +43,11 @@ implementation 'com.trello.rxlifecycle2:rxlifecycle-android-lifecycle-kotlin:2.
 而 `RxLifecycle` 就是专门解决这一痛点的。一开始发现要让我们的 `Activity 或 Fragment` 继承自库中的类，就比较担心局限性，后来发现，这货这么做完全是为了帮我们省事呀，我们常用的一些比如 `FragmentActivity、AppCompatActivity` 等，基本都有相应的 `Rx***` 类，实际使用时，我们只需将我们的 `BaseActivity` 改为实现它就行了。
 ![](http://pfpk8ixun.bkt.clouddn.com/markdown-img-paste-20180930215103733.png)
 
-该库允许基于另一个生命周期流`[a second lifecycle stream]`自动完成序列`[automatically complete sequences]`。  
+该库允许基于另一个生命周期流`[a second lifecycle stream]`自动完成序列`[automatically complete sequences]`。
 此功能在Android中很有用，因为在Android中，不完整的订阅`[incomplete subscriptions]`可能导致内存泄漏。
 
 ## 注意
-注意：【RxLifecycle 的原理是不是基于自动调用 unsubscribe 的】   
+注意：【RxLifecycle 的原理是不是基于自动调用 unsubscribe 的】
 
 RxLifecycle实际上并没有取消订阅`[unsubscribe]`序列。 相反，它终止`[terminates]`了序列。 它的表现方式因类型而异：
 - Observable、Flowable 和 Maybe：发出 onCompleted()
@@ -56,7 +56,7 @@ RxLifecycle实际上并没有取消订阅`[unsubscribe]`序列。 相反，它�
 如果序列需要 Subscription.unsubscribe() 行为，则建议您自己手动处理订阅并在适当时调用unsubscribe()。
 
 # 使用方式 compose
-您必须以表示生命周期流的 `Observable <T>` 开头。 然后使用 `RxLifecycle` 将序列绑定到该生命周期。  
+您必须以表示生命周期流的 `Observable <T>` 开头。 然后使用 `RxLifecycle` 将序列绑定到该生命周期。
 
 您可以在生命周期发出任何内容时进行绑定：
 ```java
@@ -71,7 +71,7 @@ myObservable
     .compose(RxLifecycle.bindUntilEvent(lifecycle, ActivityEvent.DESTROY))
     .subscribe(...);
  ```
- 
+
 或者，您可以让 RxLifecycle 确定结束序列的适当时间：
 ```java
 myObservable
@@ -135,7 +135,7 @@ public class RxBindingActivity extends RxFragmentActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rxbinding);
-        
+
         btn = findViewById(R.id.btn);
         RxView.clicks(btn) //点击获取验证码
                 .doOnNext(o -> btn.setEnabled(false))
@@ -147,9 +147,9 @@ public class RxBindingActivity extends RxFragmentActivity {
                                 () -> {
                                     btn.setEnabled(true);
                                     btn.setText("重新获取");
-                                }));        
+                                }));
     }
-    
+
     @Override
     protected void onResume() {
         super.onResume();
