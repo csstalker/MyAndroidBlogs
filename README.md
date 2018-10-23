@@ -8,4 +8,4 @@
 
 # 目录
 - Java
-    - [Openfire XMPP Smack RTC IM 即时通讯 聊天](https://github.com/baiqiantao/MyAndroidBlogs/Java/Openfire XMPP Smack RTC IM 即时通讯 聊天.md)
+    - [Openfire XMPP Smack RTC IM 即时通讯 聊天](https://github.com/baiqiantao/MyAndroidBlogs/blob/master/Java/Openfire XMPP Smack RTC IM 即时通讯 聊天.md)
