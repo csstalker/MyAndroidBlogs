@@ -55,5 +55,3 @@
 	- [WebView JSBridge web JS桥 演示 原理 测试 MD](https://github.com/baiqiantao/MyAndroidBlogs/blob/master/跨平台/WebView%20JSBridge%20web%20JS桥%20演示%20原理%20测试%20MD.md)
 	- [混合开发 Hybird Cordova PhoneGap web 跨平台 MD](https://github.com/baiqiantao/MyAndroidBlogs/blob/master/跨平台/混合开发%20Hybird%20Cordova%20PhoneGap%20web%20跨平台%20MD.md)
 	- [混合开发 Hybird Ionic Angular Cordova web 跨平台 MD](https://github.com/baiqiantao/MyAndroidBlogs/blob/master/跨平台/混合开发%20Hybird%20Ionic%20Angular%20Cordova%20web%20跨平台%20MD.md)
-
-![mark](http://pfpk8ixun.bkt.clouddn.com/blog/181023/mIf4CB8Hck.png?imageslim)
