@@ -12,10 +12,10 @@
 ===  
 
 - [环境要求](# 环境要求)
-- [Jenkins 环境配置](# jenkins-环境配置)
-	- [Jenkins 安装](# jenkins-安装)
+- [Jenkins 环境配置](# jenkins 环境配置)
+	- [Jenkins 安装](# jenkins 安装)
 	- [全局工具配置](# 全局工具配置)
-	- [Android SDK 路径配置](# android-sdk-路径配置)
+	- [Android SDK 路径配置](# android sdk 路径配置)
 	- [邮件配置](# 邮件配置)
 - [创建并配置打包任务](# 创建并配置打包任务)
 	- [参数化构建](# 参数化构建)

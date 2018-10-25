@@ -13,11 +13,11 @@
 
 - [目录](# 目录)
 	- [教程](# 教程)
-		- [React Native](# react-native)
+		- [React Native](# react native)
 		- [React.js](# reactjs)
 		- [ES6](# es6)
 		- [系列教程](# 系列教程)
-		- [React Native探索系列教程](# react-native探索系列教程)
+		- [React Native探索系列教程](# react native探索系列教程)
 	- [开源APP](# 开源app)
 	- [图书](# 图书)
 	- [组件](# 组件)

@@ -14,10 +14,10 @@ ARDC：Android Remote Displayer and Controller
 
 - [界面功能与快捷键](# 界面功能与快捷键)
 	- [File](# file)
-	- [EXP 文件浏览器](# exp-文件浏览器)
-	- [VIew 画面设置](# view-画面设置)
-	- [Key 模拟按键](# key-模拟按键)
-- [Devices 窗口](# devices-窗口)
+	- [EXP 文件浏览器](# exp 文件浏览器)
+	- [VIew 画面设置](# view 画面设置)
+	- [Key 模拟按键](# key 模拟按键)
+- [Devices 窗口](# devices 窗口)
   
 # 界面功能与快捷键  
 特点：    

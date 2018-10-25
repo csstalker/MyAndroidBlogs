@@ -1,6 +1,6 @@
 
 		- [　　　　　　　　　　　　Author:果冻虾仁](# 　　　　　　　　　　　　author果冻虾仁)
-		- [　　　　　　　　　 E-mail:Jelly.K.Wang@qq.com](# 　　　　　　　　　-e-mailjellykwang@qqcom)
+		- [　　　　　　　　　 E-mail:Jelly.K.Wang@qq.com](# 　　　　　　　　　 e-mailjellykwang@qqcom)
 	- [目录](# 目录)
 - [一级标题](# 一级标题)
 	- [二级标题](# 二级标题)
