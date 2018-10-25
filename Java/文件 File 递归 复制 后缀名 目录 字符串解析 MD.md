@@ -1,21 +1,3 @@
-
-- [使用方式](# 使用方式)
-	- [方式一](# 方式一)
-	- [方式二](# 方式二)
-- [一些常量](# 一些常量)
-- [文件目录递归修改](# 文件目录递归修改)
-	- [递归修改文件后缀名并修改文件内容](# 递归修改文件后缀名并修改文件内容)
-	- [递归修改文件后缀名](# 递归修改文件后缀名)
-- [递归获取格式化后的文件名](# 递归获取格式化后的文件名)
-- [文件复制](# 文件复制)
-	- [递归复制目录下的所有文件](# 递归复制目录下的所有文件)
-	- [复制一个文件或一个目录](# 复制一个文件或一个目录)
-	- [复制一个文件并修改文件内容](# 复制一个文件并修改文件内容)
-- [其他工具方法](# 其他工具方法)
-	- [将字符串复制到剪切板](# 将字符串复制到剪切板)
-	- [生成格式化的 Markdown 目录](# 生成格式化的 markdown 目录)
-- [方式二中所用到的所有工具方法](# 方式二中所用到的所有工具方法)
-- [生成 Markdown 的目录](# 生成 markdown 的目录)
 | Markdown版本笔记 | 我的GitHub首页 | 我的博客 | 我的微信 | 我的邮箱 |  
 | :------------: | :------------: | :------------: | :------------: | :------------: |  
 | [MyAndroidBlogs][Markdown] | [baiqiantao][GitHub] | [baiqiantao][博客] | bqt20094 | baiqiantao@sina.com |  
@@ -26,11 +8,29 @@
   
 文件 File 递归复制 修改后缀名 生成Markdown目录 字符串解析 MD  
 ***  
+目录  
+===  
+
+- [使用方式](#使用方式)
+- [一些常量](#一些常量)
+- [文件目录递归修改](#文件目录递归修改)
+	- [递归修改文件后缀名并修改文件内容](#递归修改文件后缀名并修改文件内容)
+	- [递归修改文件后缀名](#递归修改文件后缀名)
+- [递归获取格式化后的文件名](#递归获取格式化后的文件名)
+- [文件复制](#文件复制)
+	- [递归复制目录下的所有文件](#递归复制目录下的所有文件)
+	- [复制一个文件或一个目录](#复制一个文件或一个目录)
+	- [复制一个文件并修改文件内容](#复制一个文件并修改文件内容)
+- [其他工具方法](#其他工具方法)
+	- [将字符串复制到剪切板](#将字符串复制到剪切板)
+	- [生成格式化的 Markdown 目录](#生成格式化的 markdown 目录)
+- [方式二中所用到的所有工具方法](#方式二中所用到的所有工具方法)
+- [生成 Markdown 的目录](#生成 markdown 的目录)
   
 # 使用方式  
 工具类的作用：生成`GitHub`上厂库[MyAndroidBlogs](https://github.com/baiqiantao/MyAndroidBlogs)的`REANME.MD`中博客的目录。  
   
-## 方式一  
+**方式一**  
 不修改文件内容：  
 - 通过为知笔记导出指定目录下的所有文件，导出为U8格式的纯文本  
 - 通过 `MDUtils.modifyFileSuffix` 递归修改文件的后缀名，同时删除不匹配的文件  
@@ -44,7 +44,7 @@ TOCUtils.insertToc(new File(DIR));
 MDUtils.getFormatFilesNames(new File(DIR));  
 ```  
   
-## 方式二  
+**方式二**  
 通过方式一操作之后发现有一个小问题，就是因为`为知笔记`里面的空格实际上不是空格，而是一个`特殊符号`，这个符号放在GitHub中不起作用，比如：  
 ```java  
 System.out.println(" ".toCharArray()[0]+0);//160，MD中的空格  
@@ -52,12 +52,7 @@ System.out.println(" ".toCharArray()[0]+0);//32，正常的空格
 ```  
   
 这就很坑爹了呀，这导致我几乎所有的标签都不能用了！    
-所以优化了上面的一点细节，采用下面的步骤：  
-- 通过为知笔记导出指定目录下的所有文件，导出为U8格式的纯文本  
-- 通过 `MDUtils.modifyFile` 递归修改文件的后缀名，同时删除不匹配的文件，**同时修改文件中的一些不太正常的字符**  
-- 通过`TOCUtils.insertToc`方法递归给 markdown 文件添加目录  
-- 通过 `MDUtils.getFormatFilesNames` 获取格式化目录，并将内容复制到粘贴板  
-- 将粘贴板中的内容粘贴到`REANME.MD`中就可以了  
+所以优化了上面的一点细节，只需将上面第二步由调用 `MDUtils.modifyFileSuffix` 改为调用 `MDUtils.modifyFile` 即可。这个方法除了会递归修改文件的后缀名，并删除不匹配的文件外，同时还会**修改文件中的一些不太正常的字符**  
   
 ```java  
 MDUtils.modifyFile(new File(DIR));  
@@ -656,179 +651,141 @@ public class MDUtils {
   
 # 生成 Markdown 的目录  
 ```java  
-public class TOCUtils {  
-    private static final String HEADER_STRING = "#";  
-    private static final char HEADER_CHAR = '#';  
-    private static final String TOC_TITLE = "";//在目录前插入的内容  
-    private static final String REPLACE_TOC = "[TOC]"; //目录要替换的内容  
-  
-    /**  
-     * 递归为为文件生成目录  
-     */  
-    public static void insertToc(File from) {  
-        if (from == null || !from.exists()) {  
-            throw new RuntimeException("源目录或文件不存在");  
-        }  
-        if (from.isFile()) {  
-            insertTocIntoFile(from, from, REPLACE_TOC, Integer.MAX_VALUE);  
-            return;  
-        }  
-  
-        File[] listFiles = from.listFiles();  
-        if (listFiles == null || listFiles.length == 0) {  
-            System.out.println("----------------------" + from.getName() + "中不存在任何文件");  
-            return;  
-        }  
-  
-        for (File file : listFiles) {  
-            if (file.isDirectory()) {  
-                insertToc(file);//递归  
-            } else if (file.isFile()) {  
-                insertTocIntoFile(from, from, REPLACE_TOC, Integer.MAX_VALUE);  
-            }  
-        }  
-    }  
-  
-    /**  
-     * 为文件生成目录  
-     */  
-    public static void insertTocIntoFile(File from, File to, String replaceAt, int deepLevel) {  
-        BufferedReader reader = null;  
-        try {  
-            reader = new BufferedReader(new InputStreamReader(new FileInputStream(from)));  
-            String line;//当前行的内容  
-            List<String> contentList = new ArrayList<>();//每一行的内容集合  
-            List<TitleModel> modelList = new ArrayList<>();//标题集合  
-            int currentLine = 0;  
-            int patternLineNumber = 1; //目录插在那一行  
-  
-            while ((line = reader.readLine()) != null) {  
-                ++currentLine;  
-                boolean skipLine = false;  
-                String trimLineString = line.trim();  
-                if (trimLineString.startsWith(HEADER_STRING)) { //检测到标题  
-                    int count = getCharCount(trimLineString, HEADER_CHAR);  
-                    if (count < 1 || count > deepLevel) { //层级控制  
-                        System.out.println("----------------------------超过最大层级 " + deepLevel);  
-                        continue;  
-                    }  
-                    String headerName = trimLineString.substring(count).trim(); //去掉层级后的文字  
-                    modelList.add(new TitleModel(count, headerName, normalize(headerName)));  
-                } else if (patternLineNumber <= 1 && line.trim().equals(replaceAt)) {  
-                    patternLineNumber = currentLine; //找到这个字符串时就插在这一行(替换这个字符串)，找到之后就不再继续找了  
-                    skipLine = true;//忽略这一行  
-                }  
-                if (!skipLine) {  
-                    contentList.add(line);  
-                }  
-            }  
-  
-            if (patternLineNumber <= 0) {  
-                System.out.println("----------------------------目录插入位置有误");  
-                return;  
-            }  
-  
-            contentList.add(patternLineNumber - 1, TOC_TITLE);//在指定位置插入目录前面的标题  
-            for (TitleModel titleModel : modelList) {  
-                contentList.add(patternLineNumber, titleModel.create());  
-                patternLineNumber++;  
-            }  
-            writeFile(to, contentList);  
-        } catch (Exception e) {  
-            e.printStackTrace();  
-        } finally {  
-            closeStream(reader);  
-        }  
-    }  
-  
-    /**  
-     * 写内容到指定文件  
-     */  
-    private static void writeFile(File to, List<String> contentList) {  
-        PrintWriter writer = null;  
-        try {  
-            writer = new PrintWriter(new FileWriter(to));  
-            for (String string : contentList) {  
-                writer.append(string).append("\n");  
-            }  
-            writer.close();  
-        } catch (IOException e) {  
-            e.printStackTrace();  
-        } finally {  
-            closeStream(writer);  
-            System.out.println("----------------------------已完成 " + to.getAbsolutePath());  
-        }  
-    }  
-  
-    /**  
-     * 关闭流  
-     */  
-    public static void closeStream(Closeable... closeable) {  
-        for (Closeable c : closeable) {  
-            if (c != null) {  
-                try {  
-                    c.close();  
-                } catch (IOException e) {  
-                    e.printStackTrace();  
-                }  
-            }  
-        }  
-    }  
-  
-    /**  
-     * 字符串中字符的个数  
-     */  
-    private static int getCharCount(String string, char c) {  
-        int count = 0;  
-        for (int i = 0; i < string.length(); i++) {  
-            if (string.charAt(i) == c) {  
-                ++count;  
-            } else {  
-                break;  
-            }  
-        }  
-        return count;  
-    }  
-  
-    private static final String CODES = "%([abcdef]|\\d){2}";  
-    private static final String SPECIAL_CHARS = "[/?!:\\[\\]`.,()*\"';{}+=<>~$|#]";  
-    private static final String EMPTY = "";  
-  
-    /**  
-     * 替换特殊字符  
-     */  
-    public static String normalize(final String taintedURL) {  
-        return taintedURL.trim().replaceAll(CODES, EMPTY).replaceAll(SPECIAL_CHARS, EMPTY).toLowerCase();  
-    }  
-  
-    /**  
-     * 插入的目录的模型  
-     */  
-    private static class TitleModel {  
-        private static final String PATTERN = "%s- [%s](# %s)";  
-        private static final String AFFIX = "\t";  
-  
-        private String headerName; //标题  
-        private int deepLevel; //级别  
-        private String headerLink; //链接  
-  
-        TitleModel(int deepLevel, String headerName, String headerLink) {  
-            this.deepLevel = deepLevel;  
-            this.headerName = headerName;  
-            this.headerLink = headerLink;  
-        }  
-  
-        String create() {  
-            StringBuilder affixs = new StringBuilder();  
-            if (deepLevel > 1) {  
-                for (int i = 0; i < deepLevel - 1; i++) {  
-                    affixs.append(AFFIX);  
-                }  
-            }  
-            return String.format(PATTERN, affixs.toString(), headerName, headerLink);  
-        }  
-    }  
-}  
+<pre style="background-color:#c7edcc;color:#000000;font-family:'微软雅黑';font-size:10.8pt;">public class TOCUtils {  
+  private static final String HEADER_STRING = "#";  
+  private static final char HEADER_CHAR = '#';  
+  private static final String TOC_TITLE = "";//在目录前插入的内容  
+  private static final String REPLACE_TOC = "[TOC]"; //目录要替换的内容  
+  /**  
+ * 递归为为文件生成目录 */  public static void insertToc(File from) {  
+  if (from == null || !from.exists()) {  
+  throw new RuntimeException("源目录或文件不存在");  
+  }  
+  if (from.isFile()) {  
+  insertTocIntoFile(from, from, REPLACE_TOC, Integer.MAX_VALUE);  
+  return;  
+  }  
+  File[] listFiles = from.listFiles();  
+  if (listFiles == null || listFiles.length == 0) {  
+  System.out.println("----------------------" + from.getName() + "中不存在任何文件");  
+  return;  
+  }  
+  for (File file : listFiles) {  
+  if (file.isDirectory()) {  
+  insertToc(file);//递归  
+  } else if (file.isFile()) {  
+  insertTocIntoFile(file, file, REPLACE_TOC, Integer.MAX_VALUE);  
+  }  
+ } }  /**  
+ * 为文件生成目录 */  public static void insertTocIntoFile(File from, File to, String replaceAt, int deepLevel) {  
+  BufferedReader reader = null;  
+  try {  
+  reader = new BufferedReader(new InputStreamReader(new FileInputStream(from)));  
+  String line;//当前行的内容  
+  List<String> contentList = new ArrayList<>();//每一行的内容集合  
+  List<TitleModel> modelList = new ArrayList<>();//标题集合  
+  int currentLine = 0;  
+  int patternLineNumber = 1; //目录插在那一行  
+  while ((line = reader.readLine()) != null) {  
+  ++currentLine;  
+  boolean skipLine = false;  
+  String trimLineString = line.trim();  
+  if (trimLineString.startsWith(HEADER_STRING)) { //检测到标题  
+  int count = getCharCount(trimLineString, HEADER_CHAR);  
+  if (count < 1 || count > deepLevel) { //层级控制  
+  System.out.println("----------------------------超过最大层级 " + deepLevel);  
+  continue;  
+  }  
+  String headerName = trimLineString.substring(count).trim(); //去掉层级后的文字  
+  modelList.add(new TitleModel(count, headerName, normalize(headerName)));  
+  } else if (patternLineNumber <= 1 && line.trim().equals(replaceAt)) {  
+  patternLineNumber = currentLine; //找到这个字符串时就插在这一行(替换这个字符串)，找到之后就不再继续找了  
+  skipLine = true;//忽略这一行  
+  }  
+  if (!skipLine) {  
+  contentList.add(line);  
+  }  
+ }  closeStream(reader);  
+  if (patternLineNumber <= 0) {  
+  System.out.println("----------------------------目录插入位置有误");  
+  return;  
+  }  
+  contentList.add(patternLineNumber - 1, TOC_TITLE);//在指定位置插入目录前面的标题  
+  for (TitleModel titleModel : modelList) {  
+  contentList.add(patternLineNumber, titleModel.create());  
+  patternLineNumber++;  
+  }  
+  writeFile(to, contentList);  
+  } catch (Exception e) {  
+  e.printStackTrace();  
+  } finally {  
+  closeStream(reader);  
+  }  
+ }  /**  
+ * 写内容到指定文件 */  private static void writeFile(File to, List<String> contentList) {  
+  PrintWriter writer = null;  
+  try {  
+  writer = new PrintWriter(new FileWriter(to));  
+  for (String string : contentList) {  
+  writer.append(string).append("\n");  
+  }  
+  writer.close();  
+  } catch (IOException e) {  
+  e.printStackTrace();  
+  } finally {  
+  closeStream(writer);  
+  }  
+ }  /**  
+ * 关闭流 */  public static void closeStream(Closeable... closeable) {  
+  for (Closeable c : closeable) {  
+  if (c != null) {  
+  try {  
+  c.close();  
+  } catch (IOException e) {  
+  e.printStackTrace();  
+  }  
+ } } }  /**  
+ * 字符串中字符的个数 */  private static int getCharCount(String string, char c) {  
+  int count = 0;  
+  for (int i = 0; i < string.length(); i++) {  
+  if (string.charAt(i) == c) {  
+  ++count;  
+  } else {  
+  break;  
+  }  
+ }  return count;  
+  }  
+  private static final String CODES = "%([abcdef]|\\d){2}";  
+  private static final String SPECIAL_CHARS = "[/?!:\\[\\]`.,()*\"';{}+=<>~$|#]";  
+  private static final String EMPTY = "";  
+  /**  
+ * 替换特殊字符 */  public static String normalize(final String taintedURL) {  
+  return taintedURL.trim()  
+ .replaceAll(CODES, EMPTY)  
+ .replaceAll(SPECIAL_CHARS, EMPTY)  
+ .toLowerCase();  
+  }  
+  /**  
+ * 插入的目录的模型 */  private static class TitleModel {  
+  private static final String PATTERN = "%s- [%s](#%s)";  
+  private static final String AFFIX = "\t";  
+  private String headerName; //标题  
+  private int deepLevel; //级别  
+  private String headerLink; //链接  
+  TitleModel(int deepLevel, String headerName, String headerLink) {  
+  this.deepLevel = deepLevel;  
+  this.headerName = headerName;  
+  this.headerLink = headerLink;  
+  }  
+  String create() {  
+  StringBuilder affixs = new StringBuilder();  
+  if (deepLevel > 1) {  
+  for (int i = 0; i < deepLevel - 1; i++) {  
+  affixs.append(AFFIX);  
+  }  
+ }  return String.format(PATTERN, affixs.toString(), headerName, headerLink);  
+  }  
+ }}</pre>  
 ```  
   
 2018-10-24  
