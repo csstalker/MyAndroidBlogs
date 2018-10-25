@@ -11,7 +11,7 @@ gradlew 命令行 build 调试 构建错误 Manifest merger failed MD
 目录  
 ===  
 
-- [解决 Manifest merger failed 问题](#解决 manifest merger failed 问题)
+- [解决 Manifest merger failed 问题](#解决 Manifest merger failed 问题)
 - [使用 gradlew 命令调试构建过程](#使用 gradlew 命令调试构建过程)
 	- [gradlew 命令可配置的参数](#gradlew 命令可配置的参数)
 	- [获取所有 task](#获取所有 task)

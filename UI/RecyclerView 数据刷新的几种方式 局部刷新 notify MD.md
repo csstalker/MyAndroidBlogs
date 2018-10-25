@@ -12,8 +12,8 @@ RecyclerView 数据刷新的几种方式 局部刷新 notify MD
 ===  
 
 - [小结](#小结)
-- [Activity](#activity)
-- [Adapter](#adapter)
+- [Activity](#Activity)
+- [Adapter](#Adapter)
 - [布局](#布局)
 - [获取图片集合](#获取图片集合)
   

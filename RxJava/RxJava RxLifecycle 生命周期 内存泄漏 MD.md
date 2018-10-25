@@ -18,7 +18,7 @@ RxJava RxLifecycle 生命周期 内存泄漏 MD
 	- [产生背景](#产生背景)
 	- [注意](#注意)
 - [使用方式 compose](#使用方式 compose)
-- [RxLifecycle](#rxlifecycle)
+- [RxLifecycle](#RxLifecycle)
 - [案例](#案例)
   
 # 简介  

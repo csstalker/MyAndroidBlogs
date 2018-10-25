@@ -17,16 +17,16 @@ RxJava【创建】操作符 create just from defer timer interval MD
 	- [create](#create)
 	- [just](#just)
 	- [from](#from)
-	- [fromArray 和 fromIterable](#fromarray 和 fromiterable)
+	- [fromArray 和 fromIterable](#fromArray 和 fromIterable)
 	- [empty、error、never](#empty、error、never)
 	- [defer](#defer)
 	- [timer](#timer)
-	- [interval、intervalRange](#interval、intervalrange)
-	- [range、rangeLong](#range、rangelong)
-	- [repeat repeatUntil repeatWhen](#repeat repeatuntil repeatwhen)
+	- [interval、intervalRange](#interval、intervalRange)
+	- [range、rangeLong](#range、rangeLong)
+	- [repeat repeatUntil repeatWhen](#repeat repeatUntil repeatWhen)
 		- [repeat](#repeat)
-		- [repeatUntil](#repeatuntil)
-		- [repeatWhen](#repeatwhen)
+		- [repeatUntil](#repeatUntil)
+		- [repeatWhen](#repeatWhen)
   
 # 常用的创建操作符    
 基础创建    
