@@ -15,10 +15,10 @@ Demo地址：https://github.com/baiqiantao/LeakCanaryTest.git
 
 - [简单使用](#简单使用)
 - [更多介绍](#更多介绍)
-- [自定义 LeakCanary](#自定义-LeakCanary)
+- [自定义 LeakCanary](#自定义-leakcanary)
 - [测试案例](#测试案例)
-	- [Application](#Application)
-	- [MainActivity](#MainActivity)
+	- [Application](#application)
+	- [MainActivity](#mainactivity)
 	- [静态成员导致的内存泄漏](#静态成员导致的内存泄漏)
 	- [单例导致的内存泄漏](#单例导致的内存泄漏)
   

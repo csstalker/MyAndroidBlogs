@@ -12,7 +12,7 @@
 ===  
 
 - [案例](#案例)
-- [ClearEditText](#ClearEditText)
+- [ClearEditText](#clearedittext)
 - [下划线](#下划线)
   
 # 案例  

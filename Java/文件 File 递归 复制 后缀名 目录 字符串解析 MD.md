@@ -23,9 +23,9 @@
 	- [复制一个文件并修改文件内容](#复制一个文件并修改文件内容)
 - [其他工具方法](#其他工具方法)
 	- [将字符串复制到剪切板](#将字符串复制到剪切板)
-	- [生成格式化的 Markdown 目录](#生成格式化的-Markdown-目录)
+	- [生成格式化的 Markdown 目录](#生成格式化的-markdown-目录)
 - [方式二中所用到的所有工具方法](#方式二中所用到的所有工具方法)
-- [生成 Markdown 的目录](#生成-Markdown-的目录)
+- [生成 Markdown 的目录](#生成-markdown-的目录)
   
 # 使用方式  
 工具类的作用：生成`GitHub`上厂库[MyAndroidBlogs](https://github.com/baiqiantao/MyAndroidBlogs)的`REANME.MD`中博客的目录。  

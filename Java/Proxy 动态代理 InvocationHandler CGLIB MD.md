@@ -11,15 +11,15 @@ Proxy 动态代理 InvocationHandler CGLIB MD
 目录  
 ===  
 
-- [InvocationHandler 接口](#InvocationHandler-接口)
-- [Proxy 代理类](#Proxy-代理类)
+- [InvocationHandler 接口](#invocationhandler-接口)
+- [Proxy 代理类](#proxy-代理类)
 	- [简介](#简介)
 	- [代理类具有的属性](#代理类具有的属性)
 	- [代理实例具有的属性](#代理实例具有的属性)
 	- [在多代理接口中重复的方法](#在多代理接口中重复的方法)
-	- [API](#API)
+	- [API](#api)
 	- [底层实现原理](#底层实现原理)
-- [CGLIB 简介](#CGLIB-简介)
+- [CGLIB 简介](#cglib-简介)
   
 # InvocationHandler 接口  
 ```java  
