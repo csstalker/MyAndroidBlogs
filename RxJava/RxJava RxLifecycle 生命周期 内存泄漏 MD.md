@@ -12,7 +12,14 @@ RxJava RxLifecycle 生命周期 内存泄漏 MD
 ***  
 目录  
 ===  
-[TOC]  
+
+- [简介](# 简介)
+	- [添加依赖](# 添加依赖)
+	- [产生背景](# 产生背景)
+	- [注意](# 注意)
+- [使用方式 compose](# 使用方式-compose)
+- [RxLifecycle](# rxlifecycle)
+- [案例](# 案例)
   
 # 简介  
 另一个功能与此库类似、核心设计借鉴此库、此库作者也参与设计、此库作者认为比此库好、但是星星比较少、国内不流行、上手比较难的库：https://github.com/uber/AutoDispose    

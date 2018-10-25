@@ -12,7 +12,27 @@ RxJava【变换】操作符 map flatMap concatMap buffer MD
 ***   
 目录  
 ===  
-[TOC]  
+
+- [变换操作符](# 变换操作符)
+	- [map cast](# map-cast)
+	- [flatMap concatMap switchMap flatMapIterable](# flatmap-concatmap-switchmap-flatmapiterable)
+		- [使用 flatMap 化解循环嵌套](# 使用-flatmap-化解循环嵌套)
+		- [concatMap](# concatmap)
+		- [switchMap](# switchmap)
+		- [使用 flatMap 化解接口嵌套](# 使用-flatmap-化解接口嵌套)
+		- [flatMapIterable](# flatmapiterable)
+	- [buffer](# buffer)
+		- [buffer(count)](# buffercount)
+		- [buffer(count, skip)](# buffercount-skip)
+		- [buffer(timespan, unit)](# buffertimespan-unit)
+		- [buffer(timespan, unit, count)](# buffertimespan-unit-count)
+	- [scan](# scan)
+	- [groupBy](# groupby)
+	- [window](# window)
+		- [window(count)](# windowcount)
+		- [window(count, skip)](# windowcount-skip)
+		- [window(timespan, unit)](# windowtimespan-unit)
+		- [window(timespan, unit, count)](# windowtimespan-unit-count)
   
 # 变换操作符   
 常用的变换操作符   

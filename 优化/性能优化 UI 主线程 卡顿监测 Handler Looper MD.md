@@ -18,7 +18,17 @@
 ***  
 目录  
 ===  
-[TOC]  
+
+- [BlockCanary](# blockcanary)
+	- [背景](# 背景)
+	- [特点](# 特点)
+	- [功能](# 功能)
+	- [使用案例](# 使用案例)
+	- [卡顿分析](# 卡顿分析)
+	- [原理分析](# 原理分析)
+- [其他类似的库](# 其他类似的库)
+	- [Takt 和 TinyDancer：利用Choreographer](# takt-和-tinydancer：利用choreographer)
+	- [Cockroach：利用Looper](# cockroach：利用looper)
   
 # BlockCanary  
 `BlockCanary`是一个Android平台的一个`轻量的，非侵入式的性能监控组件`，应用只需要实现一个抽象类，提供一些该组件需要的上下文环境，就可以在平时使用应用的时候检测`主线程`上的各种卡慢问题，并通过组件提供的各种信息分析出原因并进行修复。  

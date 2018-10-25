@@ -10,7 +10,31 @@ Openfire XMPP Smack RTC IM 即时通讯 聊天 MD
 ***  
 目录  
 ===  
-[TOC]  
+
+- [简介](# 简介)
+	- [Openfire 简介](# openfire-简介)
+	- [相关的几个名词](# 相关的几个名词)
+		- [Smack](# smack)
+		- [Spark](# spark)
+		- [JID](# jid)
+		- [XMPP](# xmpp)
+	- [Openfire 安装配置](# openfire-安装配置)
+- [Stanza 节](# stanza-节)
+	- [共同属性](# 共同属性)
+	- [Presence 在线状态](# presence-在线状态)
+	- [Message 传递消息](# message-传递消息)
+	- [IQ 请求响应](# iq-请求响应)
+- [测试代码](# 测试代码)
+	- [connect 过程](# connect-过程)
+	- [login 过程](# login-过程)
+	- [获取通讯录](# 获取通讯录)
+	- [告诉服务器在线状态](# 告诉服务器在线状态)
+	- [判断是否在线](# 判断是否在线)
+	- [发送消息](# 发送消息)
+	- [测试案例代码](# 测试案例代码)
+		- [项目结构](# 项目结构)
+		- [MainActivity](# mainactivity)
+		- [常用功能封装的工具栏](# 常用功能封装的工具栏)
   
 # 简介  
 Demo地址：https://github.com/baiqiantao/OpenFireTest.git  

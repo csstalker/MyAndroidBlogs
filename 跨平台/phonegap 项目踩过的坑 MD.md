@@ -10,7 +10,12 @@ phonegap 项目踩过的坑 MD
 ***  
 目录  
 ===  
-[TOC]  
+
+- [phonegap 项目踩过的坑](# phonegap-项目踩过的坑)
+	- [包含的模块](# 包含的模块)
+	- [phonegap制作app的优点](# phonegap制作app的优点)
+	- [踩过的坑](# 踩过的坑)
+	- [总结](# 总结)
   
 # phonegap 项目踩过的坑  
 [原文](https://www.jianshu.com/p/84f618b357ff)  

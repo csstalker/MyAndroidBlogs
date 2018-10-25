@@ -10,7 +10,10 @@
 ***  
 目录  
 ===  
-[TOC]  
+
+- [案例](# 案例)
+- [ClearEditText](# clearedittext)
+- [下划线](# 下划线)
   
 # 案例  
 ![mark](http://pfpk8ixun.bkt.clouddn.com/blog/181013/04Ehg00F6c.png?imageslim)  

@@ -10,7 +10,12 @@ RecyclerView 数据刷新的几种方式 局部刷新 notify MD
 ***  
 目录  
 ===  
-[TOC]  
+
+- [小结](# 小结)
+- [Activity](# activity)
+- [Adapter](# adapter)
+- [布局](# 布局)
+- [获取图片集合](# 获取图片集合)
   
 # 小结  
 - 刷新全部可见的item，notifyDataSetChanged()  

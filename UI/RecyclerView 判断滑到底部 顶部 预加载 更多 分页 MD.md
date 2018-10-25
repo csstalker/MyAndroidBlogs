@@ -10,7 +10,13 @@ RecyclerView 判断滑到底部 顶部 预加载 更多 分页 MD
 ***  
 目录  
 ===  
-[TOC]  
+
+- [项目中的案例【预加载】](# 项目中的案例【预加载】)
+- [项目中的另一个案例](# 项目中的另一个案例)
+- [利用 lastVisibleItemPosition 判断【不靠谱】](# 利用-lastvisibleitemposition-判断【不靠谱】)
+- [利用 computeVerticalScrollRange 等判断【不靠谱】](# 利用-computeverticalscrollrange-等判断【不靠谱】)
+- [利用 canScrollVertically(direction) 判断【比较靠谱】](# 利用-canscrollverticallydirection-判断【比较靠谱】)
+- [利用 LinearLayoutManager 来判断【垃圾】](# 利用-linearlayoutmanager-来判断【垃圾】)
   
 判断RecyclerView到达底部的几种方法  
   
