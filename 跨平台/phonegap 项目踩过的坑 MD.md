@@ -11,7 +11,7 @@ phonegap 项目踩过的坑 MD
 目录  
 ===  
 
-- [phonegap 项目踩过的坑](#phonegap 项目踩过的坑)
+- [phonegap 项目踩过的坑](#phonegap-项目踩过的坑)
 	- [包含的模块](#包含的模块)
 	- [phonegap制作app的优点](#phonegap制作app的优点)
 	- [踩过的坑](#踩过的坑)

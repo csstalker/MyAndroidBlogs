@@ -11,16 +11,16 @@ Gson Json 序列号 最常用的功能 MD
 目录  
 ===  
 
-	- [通过 fromJson 反序列化为对象](#通过 fromJson 反序列化为对象)
+	- [通过 fromJson 反序列化为对象](#通过-fromJson-反序列化为对象)
 	- [更优雅的打印一个对象](#更优雅的打印一个对象)
-	- [parse 对特殊字符串的解析](#parse 对特殊字符串的解析)
-	- [fromJson 对特殊字符串的处理](#fromJson 对特殊字符串的处理)
+	- [parse 对特殊字符串的解析](#parse-对特殊字符串的解析)
+	- [fromJson 对特殊字符串的处理](#fromJson-对特殊字符串的处理)
 	- [为某个字段提供多个属性名](#为某个字段提供多个属性名)
-	- [用 JsonElement 去定义未知类型的字段](#用 JsonElement 去定义未知类型的字段)
-	- [解析 Json 字符串中的内容](#解析 Json 字符串中的内容)
-	- [格式化 Json 字符串](#格式化 Json 字符串)
-	- [将序列化后的内容写到 控制台、文件、SB中](#将序列化后的内容写到 控制台、文件、SB中)
-	- [使用 JsonWriter 编写 Json 串](#使用 JsonWriter 编写 Json 串)
+	- [用 JsonElement 去定义未知类型的字段](#用-JsonElement-去定义未知类型的字段)
+	- [解析 Json 字符串中的内容](#解析-Json-字符串中的内容)
+	- [格式化 Json 字符串](#格式化-Json-字符串)
+	- [将序列化后的内容写到 控制台、文件、SB中](#将序列化后的内容写到-控制台、文件、SB中)
+	- [使用 JsonWriter 编写 Json 串](#使用-JsonWriter-编写-Json-串)
   
 ## 通过 fromJson 反序列化为对象  
 普通对象  

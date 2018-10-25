@@ -14,14 +14,14 @@ Demo地址：https://github.com/baiqiantao/LifecycleTest.git
 目录  
 ===  
 
-- [为什么要引进 Lifecycle](#为什么要引进 Lifecycle)
+- [为什么要引进 Lifecycle](#为什么要引进-Lifecycle)
 - [使用案例](#使用案例)
-	- [LifecycleObserver 的几种实现方式](#LifecycleObserver 的几种实现方式)
-		- [实现 LifecycleObserver 接口](#实现 LifecycleObserver 接口)
-		- [实现 GenericLifecycleObserver 接口](#实现 GenericLifecycleObserver 接口)
-		- [实现 DefaultLifecycleObserver 接口](#实现 DefaultLifecycleObserver 接口)
-	- [在 Activity 中使用](#在 Activity 中使用)
-	- [在 Fragment 中使用](#在 Fragment 中使用)
+	- [LifecycleObserver 的几种实现方式](#LifecycleObserver-的几种实现方式)
+		- [实现 LifecycleObserver 接口](#实现-LifecycleObserver-接口)
+		- [实现 GenericLifecycleObserver 接口](#实现-GenericLifecycleObserver-接口)
+		- [实现 DefaultLifecycleObserver 接口](#实现-DefaultLifecycleObserver-接口)
+	- [在 Activity 中使用](#在-Activity-中使用)
+	- [在 Fragment 中使用](#在-Fragment-中使用)
 - [相关的几个接口和类](#相关的几个接口和类)
 	- [LifecycleObserver](#LifecycleObserver)
 	- [LifecycleOwner](#LifecycleOwner)

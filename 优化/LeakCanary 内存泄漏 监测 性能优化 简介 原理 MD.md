@@ -15,7 +15,7 @@ Demo地址：https://github.com/baiqiantao/LeakCanaryTest.git
 
 - [简单使用](#简单使用)
 - [更多介绍](#更多介绍)
-- [自定义 LeakCanary](#自定义 LeakCanary)
+- [自定义 LeakCanary](#自定义-LeakCanary)
 - [测试案例](#测试案例)
 	- [Application](#Application)
 	- [MainActivity](#MainActivity)

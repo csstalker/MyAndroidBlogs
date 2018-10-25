@@ -27,7 +27,7 @@
 	- [卡顿分析](#卡顿分析)
 	- [原理分析](#原理分析)
 - [其他类似的库](#其他类似的库)
-	- [Takt 和 TinyDancer：利用Choreographer](#Takt 和 TinyDancer：利用Choreographer)
+	- [Takt 和 TinyDancer：利用Choreographer](#Takt-和-TinyDancer：利用Choreographer)
 	- [Cockroach：利用Looper](#Cockroach：利用Looper)
   
 # BlockCanary  
