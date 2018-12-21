@@ -13,6 +13,7 @@ RxJava 设计理念 观察者模式 Observable lambdas MD
 目录    
 ===    
 
+- [常用库](#常用库)
 - [首先写一个最简单的观察者模式](#首先写一个最简单的观察者模式)
 - [我们再对比下用 rx 写的观察者模式](#我们再对比下用-rx-写的观察者模式)
 - [简化代码](#简化代码)
@@ -20,6 +21,26 @@ RxJava 设计理念 观察者模式 Observable lambdas MD
 - [对于 map 的更多用法](#对于-map-的更多用法)
 - [对 rx 设计理念的理解](#对-rx-设计理念的理解)
   
+# 常用库  
+```groovy  
+implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'  
+implementation 'io.reactivex.rxjava2:rxjava:2.x.x'  
+  
+implementation 'com.jakewharton.rxrelay2:rxrelay:2.0.0'  
+  
+implementation "com.github.akarnokd:rxjava2-extensions:0.16.0"  
+  
+implementation "com.squareup.retrofit2:retrofit:2.0.0"  
+implementation "com.squareup.retrofit2:converter-gson:2.0.0"  
+implementation "com.squareup.okhttp3:okhttp:3.7.0"  
+implementation "com.squareup.okhttp3:okhttp-urlconnection:3.0.1"  
+implementation 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'  
+  
+implementation 'top.zibin:Luban:1.1.8'  
+implementation 'com.github.tbruyelle:rxpermissions:0.10.2'  
+implementation 'com.jakewharton.rxbinding2:rxbinding:2.1.1'  
+implementation 'com.trello.rxlifecycle2:rxlifecycle-components:2.2.2'  
+```  
   
 # 首先写一个最简单的观察者模式    
 ```Java    

@@ -6,7 +6,7 @@
 [GitHub]:https://github.com/baiqiantao  
 [博客]:http://www.cnblogs.com/baiqiantao/  
   
-Gson Json 序列号 最常用的功能 MD  
+Gson Json 序列化 最常用的功能 MD  
 ***  
 目录  
 ===  
