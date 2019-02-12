@@ -16,6 +16,8 @@
 	- [数组常用操作](#数组常用操作)
 		- [定义数组](#定义数组)
 		- [List转数组](#list转数组)
+			- [常规用法](#常规用法)
+			- [常见的坑](#常见的坑)
 		- [遍历数组](#遍历数组)
 	- [集合常用操作](#集合常用操作)
 		- [数组转 List](#数组转-list)
@@ -77,10 +79,54 @@ String[] array = new String()[];
 ```  
   
 ### List转数组  
+#### 常规用法  
+```java  
+List<String> list = new ArrayList<>();  
+list.add("a");  
+list.add("b");  
+list.add("c");  
+String[] array = list.toArray(new String[list.size()]);  
+System.out.println(Arrays.toString(array)); //[a, b, c]  
+```  
+  
+#### 常见的坑  
+**对于普通的 ArrayList**  
+```java  
+List<String> list = new ArrayList<>();  
+list.add("a");  
+list.add("b");  
+list.add("c");  
+```  
+坑1：  
+```java  
+String[] array = list.toArray(new String[0]);  
+System.out.println(Arrays.toString(array));  //结果仍为[a, b, c]  
+```  
+坑2：  
+```java  
+String[] array = list.toArray(new String[list.size() + 1]);  
+System.out.println(Arrays.toString(array));  //结果为[a, b, c, null]  
+```  
+坑3：  
+```java  
+String[] temp = new String[] { "aa", "bb", "cc", "dd", "ee" };  
+String[] array = list.toArray(temp);  
+System.out.println(Arrays.toString(array)); //[a, b, c, null, ee]  
+```  
+坑4：  
+```java  
+String[] array = (String[]) list.toArray();  
+// 异常 ClassCastException: [Ljava.lang.Object; cannot be cast to [Ljava.lang.String;  
+```  
+  
+**对于通过`Arrays.asList`转换过来的`Arrays$ArrayList`**  
 ```java  
 List<String> list = Arrays.asList("a", "b", "c");  
+System.out.println(list.getClass().getName()); //java.util.Arrays$ArrayList  
+System.out.println(list instanceof ArrayList); //false  
+  
 String[] array = (String[]) list.toArray();  
-String[] array2 = list.toArray(new String[list.size()]);  
+System.out.println(Arrays.toString(array)); // 不会异常[a, b, c]  
 ```  
   
 ### 遍历数组  

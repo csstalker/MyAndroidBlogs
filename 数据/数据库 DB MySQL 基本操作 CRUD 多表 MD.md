@@ -13,6 +13,8 @@
 
 - [操作数据库](#操作数据库)
 - [操作表](#操作表)
+	- [获取所有表](#获取所有表)
+	- [判断某张表是否存在](#判断某张表是否存在)
 - [操作表记录](#操作表记录)
 	- [INSERT](#insert)
 	- [UPDATE](#update)
@@ -25,8 +27,7 @@
 	- [多表查询](#多表查询)
 	- [多表查询实例](#多表查询实例)
 - [补充](#补充)
-	- [Java 获取所有表](#java-获取所有表)
-	- [查看 Android 数据库表结构方法](#查看-android-数据库表结构方法)
+	- [查看 Android 数据库表结构](#查看-android-数据库表结构)
 	- [命令行显示中文乱码解决方案](#命令行显示中文乱码解决方案)
 	- [sqlite3:not found 解决方法](#sqlite3not-found-解决方法)
   
@@ -99,6 +100,45 @@ create table employee(
   
 **删除表**  
 删除user表：`drop table user;`  
+  
+## 获取所有表  
+```java  
+public List<String> getChatTables(){  
+    ArrayList<String> tables = new ArrayList<>();  
+    Cursor cursor = dbWrite.rawQuery("select name from sqlite_master where type='table' and name like 'chat%' ", null);  
+    cursor.moveToPrevious();  
+  
+    while(cursor.moveToNext()){  
+       String name = cursor.getString(0); //遍历出表名  
+       if(name.startsWith("chat_")){ //这一步的判断是可以省略的  
+           tables.add(name);  
+       }  
+    }  
+      cursor.close();  
+      return tables;  
+}  
+```  
+  
+## 判断某张表是否存在  
+**在创建表之前判断**  
+```  
+create table if not exists  
+```  
+  
+**判断某张表是否存在**  
+```java  
+public static boolean isTableExist(SQLiteDatabase db, String name) {  
+    Cursor cursor = db.rawQuery("select name from sqlite_master where type='table';", null);  
+    while (cursor.moveToNext()) {  
+        if (name.equalsIgnoreCase(cursor.getString(0))) {  
+            cursor.close();  
+            return true;  
+        }  
+    }  
+    cursor.close();  
+    return false;  
+}  
+```  
   
 # 操作表记录  
 ## INSERT  
@@ -375,27 +415,11 @@ select * from a right join b on a.id = b.id;
 ![](index_files/1eec03b7-5d21-4a39-9507-efd849b9d144.png)  
   
 # 补充  
-## Java 获取所有表  
-```java  
-public List<String> getChatTables(){  
-    initDataBaseHelper();  
+## 查看 Android 数据库表结构  
+[SQLite Expert Professional](http://www.sqliteexpert.com/)   
+[SQLite Expert 破解版下载](http://gw.086o2i.cn:8080/201203/tools/SQLiteExpert_jb51net.rar)  
+[SQLiteStudio(免费)](https://sqlitestudio.pl/index.rvt?act=download)  
   
-    ArrayList<String> tables = new ArrayList<>();  
-    Cursor cursor = dbWrite.rawQuery("select name from sqlite_master where type='table' and name like 'chat%' ", null);  
-    cursor.moveToPrevious();  
-  
-    while(cursor.moveToNext()){  
-       String name = cursor.getString(0); //遍历出表名  
-       if(name.startsWith("chat_")){ //这一步的判断是可以省略的  
-           tables.add(name);  
-       }  
-    }  
-      cursor.close();  
-      return tables;  
-}  
-```  
-  
-## 查看 Android 数据库表结构方法  
 在android中，为某个应用程序创建的数据库文件位于Android设备的 `/data/data/包名/databases` 文件夹中，并且只有此应用程序自己可以访问，其它应用程序是不能访问的。开发者若要查看数据库中的内容，方式有两种 ：  
 - 1、将数据库文件通过`File Explorer`或其他方式导出后使用可视化工具`SQLite Expert`软件打开(工具是收费的)  
 - 2、在cmd命令下通过使用系统自带的`sqlite3`命令查看。  

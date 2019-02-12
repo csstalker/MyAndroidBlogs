@@ -22,6 +22,10 @@ Gson Json 序列化 最常用的功能 MD
 	- [将序列化后的内容写到 控制台、文件、SB中](#将序列化后的内容写到-控制台、文件、sb中)
 	- [使用 JsonWriter 编写 Json 串](#使用-jsonwriter-编写-json-串)
   
+```groovy  
+implementation 'com.google.code.gson:gson:2.8.2'  
+```  
+  
 ## 通过 fromJson 反序列化为对象  
 普通对象  
 ```java  

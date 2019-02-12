@@ -145,18 +145,18 @@ protected void onDestroy() {
         disposable.dispose();  
     }  
 }  
-​  
+  
 private void startCountDown() {  
     send.setEnabled(false);  
     disposable = Observable.intervalRange(0, 10, 0, 1, TimeUnit.SECONDS) //起始值，发送总数量，初始延迟，固定延迟  
-        .observeOn(Schedulers.io())  
-        .subscribeOn(AndroidSchedulers.mainThread())  
-        .subscribe(time -> send.setText((30 - time) + "s"),  
+        .subscribeOn(Schedulers.io())  
+        .observeOn(AndroidSchedulers.mainThread())  
+        .subscribe(time -> send.setText((10 - time) + "s"),  
             Throwable::printStackTrace,  
-            () -> runOnUiThread(() -> {  
+            () -> {  
                 send.setEnabled(true);  
                 send.setText("获取验证码");  
-            })  
+            }  
         );  
 }  
 ```  

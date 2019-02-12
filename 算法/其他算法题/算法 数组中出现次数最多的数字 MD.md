@@ -15,6 +15,7 @@
 	- [方式一：快速排序](#方式一：快速排序)
 	- [方式二：两次循环(通用)](#方式二：两次循环通用)
 	- [方式三：一次循环(推荐)](#方式三：一次循环推荐)
+- [有序数组](#有序数组)
   
 # 数组中出现次数最多的数字  
 给定一个int数组，找出出现次数最多的数字（出现次数超过数组长度的一半）  
@@ -142,4 +143,29 @@ public class Test {
 时间复杂度为`O(n)`  
 空间复杂度为`O(1)`  
   
+  
+# 有序数组  
+```java  
+private static int count(int[] array) {  
+    int num = array[0], tempCount = 1, maxCount = 1;  
+    for (int i = 1; i < array.length - 1; i++) {  
+        if (array[i] == array[i - 1]) {  
+            tempCount++;  
+            maxCount = Math.max(maxCount, tempCount);  
+        } else {  
+            if ((tempCount + i) < array.length && array[i] == array[tempCount + i]) {  
+                tempCount++;  
+                if (tempCount > maxCount) {  
+                    num = array[i];  
+                    maxCount = tempCount;  
+                }  
+                i += tempCount - 1;  
+            } else {  
+                tempCount = 1;  
+            }  
+        }  
+    }  
+    return num;  
+}  
+```  
 2018-12-8  
