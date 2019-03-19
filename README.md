@@ -1,4 +1,6 @@
-以下文章均已发布到 [个人站点(baiqiantao.github.io)](https://baiqiantao.github.io/)  以及 [个人博客(www.cnblogs.com/baiqiantao/)](http://www.cnblogs.com/baiqiantao/) 上，欢迎访问
+以下文章均已发布到 [个人站点(baiqiantao.github.io)](https://baiqiantao.github.io/)  以及 [个人博客(www.cnblogs.com/baiqiantao)](http://www.cnblogs.com/baiqiantao/) 上，欢迎访问。
+
+如有疑问，欢迎加我微信【bqt20094】详聊
 
 ---
 
