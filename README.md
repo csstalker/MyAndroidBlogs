@@ -1,13 +1,6 @@
-以下文章均已发布到 [个人站点(baiqiantao.github.io)](https://baiqiantao.github.io/)  以及 [个人博客(www.cnblogs.com/baiqiantao/)](http://www.cnblogs.com/baiqiantao/) 上
+以下文章均已发布到 [个人站点(baiqiantao.github.io)](https://baiqiantao.github.io/)  以及 [个人博客(www.cnblogs.com/baiqiantao/)](http://www.cnblogs.com/baiqiantao/) 上，欢迎访问
 
-
-| Markdown版本笔记 | 我的GitHub首页 | 我的博客 | 我的微信 | 我的邮箱 |
-| :------------: | :------------: | :------------: | :------------: | :------------: |
-| [MyAndroidBlogs][Markdown] | [baiqiantao][GitHub] | [baiqiantao][博客] | bqt20094 | baiqiantao@sina.com |
-
-[Markdown]:https://github.com/baiqiantao/MyAndroidBlogs
-[GitHub]:https://github.com/baiqiantao
-[博客]:http://www.cnblogs.com/baiqiantao/
+---
 
 # 目录
 - [导出的笔记](https://github.com/baiqiantao/MyAndroidBlogs/blob/master/导出的笔记)
