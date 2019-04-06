@@ -15,13 +15,13 @@ ARouter 路由 组件 跳转 MD
 	- [支持的功能](#支持的功能)
 	- [典型应用](#典型应用)
 	- [简单使用](#简单使用)
-- [如果使用了 byType 的方式获取 Service，需添加下面规则，保护接口](#如果使用了-bytype-的方式获取-service，需添加下面规则，保护接口)
-- [如果使用了 单类注入，即不定义接口实现 IProvider，需添加下面规则，保护实现](#如果使用了-单类注入，即不定义接口实现-iprovider，需添加下面规则，保护实现)
-- [-keep class * implements com.alibaba.android.arouter.facade.template.IProvider](#-keep-class--implements-comalibabaandroidarouterfacadetemplateiprovider)
+- [如果使用了 byType 的方式获取 Service，需添加下面规则，保护接口](#如果使用了-byType-的方式获取-Service，需添加下面规则，保护接口)
+- [如果使用了 单类注入，即不定义接口实现 IProvider，需添加下面规则，保护实现](#如果使用了-单类注入，即不定义接口实现-IProvider，需添加下面规则，保护实现)
+- [-keep class * implements com.alibaba.android.arouter.facade.template.IProvider](#-keep-class--implements-comalibabaandroidarouterfacadetemplateIProvider)
 	- [进阶使用](#进阶使用)
 	- [更多功能](#更多功能)
 	- [其他](#其他)
-	- [Q&A](#q&a)
+	- [Q&A](#Q&A)
   
 # 简介  
 一个用于帮助 Android App 进行`组件化改造`的框架 —— 支持模块间的`路由、通信、解耦`  

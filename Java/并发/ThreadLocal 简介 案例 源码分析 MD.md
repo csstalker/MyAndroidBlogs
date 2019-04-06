@@ -12,13 +12,13 @@ ThreadLocal 简介 案例 源码分析 MD
 ===  
 
 - [先来看基本用法](#先来看基本用法)
-- [对ThreadLocal的理解](#对threadlocal的理解)
-- [ThreadLocal 详解](#threadlocal-详解)
-	- [正确理解 ThreadLocal](#正确理解-threadlocal)
-	- [ThreadLocal 源码分析](#threadlocal-源码分析)
+- [对ThreadLocal的理解](#对ThreadLocal的理解)
+- [ThreadLocal 详解](#ThreadLocal-详解)
+	- [正确理解 ThreadLocal](#正确理解-ThreadLocal)
+	- [ThreadLocal 源码分析](#ThreadLocal-源码分析)
 		- [构造方法](#构造方法)
 		- [set 方法](#set-方法)
-		- [ThreadLocalMap](#threadlocalmap)
+		- [ThreadLocalMap](#ThreadLocalMap)
 		- [get 方法](#get-方法)
 	- [总结](#总结)
 	- [一个类型转换的坑](#一个类型转换的坑)

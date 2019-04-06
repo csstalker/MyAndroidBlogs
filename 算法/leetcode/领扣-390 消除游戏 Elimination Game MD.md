@@ -11,7 +11,7 @@
 目录  
 ===  
 
-- [[消除游戏 Elimination Game MD](https://leetcode-cn.com/problems/elimination-game/)](#消除游戏-elimination-game-mdhttpsleetcode-cncomproblemselimination-game)
+- [[消除游戏 Elimination Game MD](https://leetcode-cn.com/problems/elimination-game/)](#消除游戏-Elimination-Game-MDhttpsleetcode-cncomproblemselimination-game)
 	- [题目](#题目)
 	- [暴力循环删除法](#暴力循环删除法)
 	- [递归法](#递归法)

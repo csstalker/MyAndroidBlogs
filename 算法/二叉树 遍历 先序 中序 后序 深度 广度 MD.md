@@ -15,10 +15,10 @@
 	- [测试案例](#测试案例)
 	- [构造二叉树](#构造二叉树)
 	- [结点定义](#结点定义)
-	- [深度优先 Depth First Search](#深度优先-depth-first-search)
+	- [深度优先 Depth First Search](#深度优先-Depth-First-Search)
 		- [使用递归遍历](#使用递归遍历)
 		- [使用栈遍历](#使用栈遍历)
-	- [广度优先(队列) Breadth First Search](#广度优先队列-breadth-first-search)
+	- [广度优先(队列) Breadth First Search](#广度优先队列-Breadth-First-Search)
 # 二叉树遍历  
 ## 测试案例  
 ![](https://images2015.cnblogs.com/blog/694228/201612/694228-20161223104306339-1643814063.png)  

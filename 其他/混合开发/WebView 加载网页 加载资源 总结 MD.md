@@ -11,20 +11,20 @@ WebView 加载网页 加载资源 总结 MD
 目录  
 ===  
 
-- [WebView 加载数据的几种方法](#webview-加载数据的几种方法)
-	- [loadData](#loaddata)
+- [WebView 加载数据的几种方法](#WebView-加载数据的几种方法)
+	- [loadData](#loadData)
 		- [使用说明](#使用说明)
 		- [加载中文注意事项](#加载中文注意事项)
-	- [loadDataWithBaseURL](#loaddatawithbaseurl)
+	- [loadDataWithBaseURL](#loadDataWithBaseURL)
 		- [使用说明](#使用说明)
-		- [baseUrl的用法解析](#baseurl的用法解析)
-	- [loadUrl](#loadurl)
-	- [postUrl](#posturl)
-	- [evaluateJavascript](#evaluatejavascript)
+		- [baseUrl的用法解析](#baseUrl的用法解析)
+	- [loadUrl](#loadUrl)
+	- [postUrl](#postUrl)
+	- [evaluateJavascript](#evaluateJavascript)
 - [加载各种类型的资源方法总结](#加载各种类型的资源方法总结)
 - [一个完整的案例](#一个完整的案例)
-	- [Java 代码](#java-代码)
-	- [参考HTML代码](#参考html代码)
+	- [Java 代码](#Java-代码)
+	- [参考HTML代码](#参考HTML代码)
   
 # WebView 加载数据的几种方法  
 [demo](https://github.com/baiqiantao/WebViewTest.git)  

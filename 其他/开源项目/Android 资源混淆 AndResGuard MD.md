@@ -14,7 +14,7 @@ Android 资源混淆 AndResGuard
 - [资源混淆工具库简介](#资源混淆工具库简介)
 - [使用](#使用)
 	- [配置 build.gradlle](#配置-buildgradlle)
-	- [配置 whiteList 与 mappingFile](#配置-whitelist-与-mappingfile)
+	- [配置 whiteList 与 mappingFile](#配置-whiteList-与-mappingFile)
 	- [启动任务](#启动任务)
 	- [生成的文件](#生成的文件)
   

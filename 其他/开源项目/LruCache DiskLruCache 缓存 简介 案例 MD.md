@@ -11,15 +11,15 @@ LruCache DiskLruCache 缓存 简介 案例 MD
 目录  
 ===  
 
-- [DiskLruCache 简介](#disklrucache-简介)
+- [DiskLruCache 简介](#DiskLruCache-简介)
 	- [缓存路径的选择](#缓存路径的选择)
 	- [获取实例及初始化](#获取实例及初始化)
-	- [MD5生成文件名](#md5生成文件名)
+	- [MD5生成文件名](#MD5生成文件名)
 	- [写入缓存](#写入缓存)
 	- [读取缓存](#读取缓存)
-	- [其他API](#其他api)
+	- [其他API](#其他API)
 	- [日志文件](#日志文件)
-- [LruCache 源码分析](#lrucache-源码分析)
+- [LruCache 源码分析](#LruCache-源码分析)
   
 # DiskLruCache 简介  
 [GitHub](https://github.com/JakeWharton/DiskLruCache)  

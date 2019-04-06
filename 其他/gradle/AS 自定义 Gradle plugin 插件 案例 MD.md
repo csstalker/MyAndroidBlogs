@@ -11,7 +11,7 @@ AS 自定义 Gradle plugin 插件 案例 MD
 目录  
 ===  
 
-- [AS 中自定义 Gradle plugin](#as-中自定义-gradle-plugin)
+- [AS 中自定义 Gradle plugin](#AS-中自定义-Gradle-plugin)
 	- [编写插件](#编写插件)
 	- [传递参数](#传递参数)
 	- [发布插件到仓库](#发布插件到仓库)

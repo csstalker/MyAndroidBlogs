@@ -15,24 +15,26 @@
 	- [默认行为](#默认行为)
 		- [试验 0](#试验-0)
 		- [结论](#结论)
-	- [dispatchTouchEvent 返回 true](#dispatchtouchevent-返回-true)
+	- [dispatchTouchEvent 返回 true](#dispatchTouchEvent-返回-true)
 		- [试验 1](#试验-1)
 		- [试验 2](#试验-2)
 		- [结论](#结论)
-	- [onInterceptTouchEvent 返回 true](#onintercepttouchevent-返回-true)
+	- [onInterceptTouchEvent 返回 true](#onInterceptTouchEvent-返回-true)
 		- [试验 3](#试验-3)
 		- [结论](#结论)
-	- [onTouchEvent 返回 true](#ontouchevent-返回-true)
+	- [onTouchEvent 返回 true](#onTouchEvent-返回-true)
 		- [试验 4](#试验-4)
 		- [结论](#结论)
 		- [试验 5](#试验-5)
 	- [测试代码](#测试代码)
-		- [Activity](#activity)
-		- [自定义 LinearLayout](#自定义-linearlayout)
-		- [自定义 TextView](#自定义-textview)
+		- [Activity](#Activity)
+		- [自定义 LinearLayout](#自定义-LinearLayout)
+		- [自定义 TextView](#自定义-TextView)
 		- [工具类](#工具类)
-- [一些面试题](#一些面试题)
-- [onTouch 和 onTouchEvent 的区别](#ontouch-和-ontouchevent-的区别)
+- [补充](#补充)
+	- [一些面试题](#一些面试题)
+	- [滑动冲突问题如何解决？](#滑动冲突问题如何解决？)
+	- [onTouch 和 onTouchEvent 的区别](#onTouch-和-onTouchEvent-的区别)
   
 # 事件分发机制分析案例  
 ![](index_files/bc6f8abf-6e9b-4828-9574-91b63848f499.png)  
@@ -210,8 +212,8 @@ onTouchEvent--root--按下
   
 ### 结论  
 - 如果一个 `ViewGroup` 的`onInterceptTouchEvent`方法返回 true，则代表此 ViewGroup 会拦截**后续所有事件**，因此，其`子View`后续将收不到`任何Touch事件`。  
-- 注意，`ViewGroup`拦截事件后会将当前事件传递给自己的 `onTouch` 和 `onTouchEvent` 方法，而**不会终止事件的分发**。  
-- 因此，我们可以认为：如果一个 `ViewGroup` 的`onInterceptTouchEvent`方法返回 true，则可以等价的认为这个`ViewGroup`隐藏了其所有`子View`(或者认为其没有任何子View)，而其他过程和正常的事件分发过程完全一致。  
+- 注意，`ViewGroup`拦截事件后会将当前事件传递给自己的 `onTouch` 和 `onTouchEvent` 方法，然后继续执行事件的分发流程，即如果自己的 `onTouch` 和 `onTouchEvent` 方法都返回false，会将事件传递给自己父`ViewGroup`的`onTouch`方法，而**不是在此终止事件的分发**。  
+- 因此，我们可以认为：如果一个 `ViewGroup` 的`onInterceptTouchEvent`方法返回 true，则可以等价的认为这个`ViewGroup`隐藏了其所有`子View`(或者认为其没有任何子View)，而其他过程**和正常的事件分发过程完全一致**。  
 - 鉴于此，我们经常是在`onInterceptTouchEvent`方法中拦截`子View`获取事件(目的往往是为了让自己能够处理后续事件)。  
   
 `onInterceptTouchEvent` 和 `dispatchTouchEvent` 方法的注意区别：  
@@ -279,15 +281,23 @@ onTouchEvent--ll_child--松开
 - 【下发过程】：当触摸`孙子TextView`时，虽然`子LinearLayout`的`onTouchEvent`方法返回了true，但是`孙子TextView`的`dispatchTouchEvent`方法仍会被调用，所以，View的`onTouchEvent`方法返回true并不会影响`DOWN`事件的正常下发。  
 - 【上传过程】：首先`DOWN`事件会从最底层的`孙子TextView`的`onTouchEvent`方法上传给`子LinearLayout`的`onTouchEvent`方法，然后`DOWN`事件的上传过程就结束了，而不会继续上传给`父View`。  
   
+面试题：  
+> 问：如果子View和父ViewGroup的`onTouchEvent`都返回true，哪个控件的`onTouchEvent`会执行？  
+答：子View的。  
+问：这种情况下，怎么让父ViewGroup的`onTouchEvent`执行？  
+答：让父ViewGroup的`onInterceptTouchEvent`方法返回 true即可。  
+  
 结论：  
 - `onTouchEvent`方法的返回值并不会影响`DOWN`事件的正常`下发`过程。  
-- 如果一个View的`onTouchEvent`方法返回true，那么`DOWN`事件的`上传`过程将会在这里停止，所以此View所有`父View`的`onTouch`方法和`onTouchEvent`方法都将不会被调用。  
+- 如果一个View的`onTouchEvent`方法返回true，那么`DOWN`事件的`上传`过程将会在这里停止，所以此View所有`父View`的`onTouch`方法和`onTouchEvent`方法都将不会被调用(这是一条核心的结论)。  
 - 换句话说，如果一个View的`onTouchEvent`方法返回true，那么`DOWN`事件将会在传递到View的`onTouchEvent`方法后被完全消耗掉。  
   
 **对于后续的 MOVE、UP 事件**  
-- 所触摸的那个View`及`所有`父View`的`dispatchTouchEvent`方法和`onInterceptTouchEvent`方法【都会】被调用。  
-- 所触摸的那个View的所有`子View`的`dispatchTouchEvent`方法和`onInterceptTouchEvent`方法【都不会】被调用。  
-- 仅所触摸的那个View的`onTouch`方法和`onTouchEvent`方法会被调用，换句话说就是，仅`onTouchEvent`返回true的那个View的`onTouchEvent`方法能够处理`MOVE、UP`事件。  
+我们假设上面那个`onTouchEvent`方法返回true的View名字为ViewA  
+  
+- ViewA`及`其所有`父View`的`dispatchTouchEvent`方法和`onInterceptTouchEvent`方法【都会】被调用。  
+- ViewA的所有`子View`的`dispatchTouchEvent`方法和`onInterceptTouchEvent`方法【都不会】被调用。  
+- 仅ViewA的`onTouch`方法和`onTouchEvent`方法会被调用，或者说仅ViewA的`onTouchEvent`方法能够处理`MOVE、UP`事件。  
 - 所以，`onTouchEvent`方法最核心的作用是用来告诉View树：后续的`MOVE、UP`事件到底应该从根View【传递】到哪个View去处理(PS："传递"这个词用的非常好)。  
   
 **完整的流程为**  
@@ -435,14 +445,18 @@ public class Utils {
 }  
 ```  
   
-# 一些面试题  
+# 补充  
+## 一些面试题  
 **View的onTouchEvent方法，OnClickListerner的OnClick方法，OnTouchListener的onTouch方法，这三者的优先级如何？**  
 onTouch ＞ onTouchEvent  ＞ OnClick  
+  
+**如果子View和父ViewGroup的onTouchEvent都返回true，哪个控件的onTouchEvent会执行？**  
+子View的。这种情况下，让父ViewGroup的`onInterceptTouchEvent`方法返回true即可让父ViewGroup的`onTouchEvent`执行。  
   
 **如果某个view(不包括VG)处理事件的时候没有消耗down事件，会有什么结果？**  
 假如一个view，在down事件来的时候他的`onTouchEvent`返回false， 那么这个down事件所属的`事件序列`，就是他`后续的move和up`都不会给他处理了。  
   
-> 注意：之所以不包括VG绝不是因为对于`后续的move和up`，此view的父View的onTouchEvent会回调，而只是因为任何view所接收到的事件都是通过VG传递过来的。  
+> 注意：之所以不包括VG，绝不是因为对于`后续的move和up`，此view的父View的onTouchEvent会回调，而只是因为任何view所接收到的事件都是通过VG传递过来的。  
   
 **一旦有事件传递给view(不包括VG)，view的onTouchEvent一定会被调用吗？**  
 一定会(一定要三思，否则多半会回答"不一定会")。  
@@ -453,7 +467,7 @@ onTouch ＞ onTouchEvent  ＞ OnClick
   
 **enable是否影响view的onTouchEvent返回值？**  
 不影响  
-只要`clickable和longClickable`有一个为真，那么onTouchEvent就返回true  
+只要view的`clickable和longClickable`有一个为真，那么此view的onTouchEvent就返回true  
   
 **requestDisallowInterceptTouchEvent 的作用？**  
 可以`在子元素中干扰父元素的事件分发`  
@@ -463,16 +477,75 @@ onTouch ＞ onTouchEvent  ＞ OnClick
 只有滑动需求的时候就用onTouchEvent  
 如果有双击、抛掷等行为的时候就用GestureDetector  
   
-**滑动冲突问题如何解决？**  
+## 滑动冲突问题如何解决？  
 要解决滑动冲突，其实主要的就是一个核心思想：`你到底想让哪个 view 来响应你的滑动？`  
   
 比如，从上到下滑，是哪个view来处理这个事件，从左到右呢？  
   
 业务需求想明白以后，解决的方法就是2个：`外部拦截(父亲拦截)和内部拦截`，基本上所有的滑动冲突都是这2种的变种，而且核心代码思想都一样。  
-- 外部拦截法：思路就是`重写父容器的onInterceptTouchEvent方法`，子元素一般不需要做额外的处理。我们通常是对父View的`onInterceptTouchEvent`接收到的Move事件做一个`过滤`，当Move事件满足适当条件时(如持续若干时间或移动若干距离)会拦截掉，并返回子View一个`Action_Cancel`事件。这种方式比较简单且很容易让人理解。  
-- 内部拦截法：思路就是父容器不管，在子View中调用`getParent().requestDisallowInterceptTouchEvent(true)`，作用是告诉父view，这个触摸事件由我来处理，不要阻碍我。  
   
-# onTouch 和 onTouchEvent 的区别  
+**外部拦截法**  
+外部拦截法的思路就是`重写父容器的onInterceptTouchEvent方法`，子元素一般不需要做额外的处理。我们通常是对父View的`onInterceptTouchEvent`接收到的Move事件做一个`过滤`，当Move事件满足适当条件时(如持续若干时间或移动若干距离)会拦截掉，并返回子View一个`Action_Cancel`事件。这种方式比较简单且很容易让人理解。  
+  
+伪代码：  
+```java  
+@Override  
+public boolean onInterceptTouchEvent(MotionEvent event) {  
+    boolean intercepted = false;  
+    switch (event.getAction()) {  
+        case MotionEvent.ACTION_DOWN:  
+            intercepted = false;  
+            break;  
+        case MotionEvent.ACTION_MOVE:  
+            if (父容器需要点击事件) {  
+                intercepted = true;  
+            } else {  
+                intercepted = false;  
+            }  
+            break;  
+        case MotionEvent.ACTION_UP:  
+            intercepted = false;  
+            break;  
+        default:  
+            break;  
+    }  
+    return intercepted;  
+}  
+```  
+  
+在父容器的onInterceptTouchEvent方法中:  
+- 对于`ACTION_DOWN`事件，父容器必须返回false，即不拦截ACTION_DOWN事件，这是因为一旦父容器拦截者这个事件，那么后续的ACTION_MOVE和ACTION_UP事件都会直接交由父容器处理，这个时候就没法传递给子元素了  
+- 对于`ACTION_UP`事件，父容器也必须返回false，否则就会导致子元素无法接收到ACTION_UP事件，这个时候onClick事件就无法触发  
+- 对于`ACTION_MOVE`事件，这个事件可以根据需要来决定是否拦截  
+  
+**内部拦截法**  
+内部拦截法的思路就是父容器不拦截任何事件，所有事件都传递给子元素，如果子元素需要此事件就直接消耗掉，否则就交由父容器处理。我们需要重写子元素的dispatchTouchEvent方法，在其中调用`getParent().requestDisallowInterceptTouchEvent(true)`，作用是告诉父view，这个触摸事件由我来处理，不要阻碍我。  
+  
+伪代码：  
+```java  
+@Override  
+public boolean dispatchTouchEvent(MotionEvent event) {  
+    switch (event.getAction()) {  
+        case MotionEvent.ACTION_DOWN:  
+            parent.requestDisallowInterceptTouchEvent(true);// 表示不拦截  
+            break;  
+        case MotionEvent.ACTION_MOVE:  
+            if (父容器需要点击事件) {  
+                parent.requestDisallowInterceptTouchEvent(false);// 表示拦截  
+            }  
+            break;  
+        case MotionEvent.ACTION_UP:  
+            break;  
+        default:  
+            break;  
+    }  
+    return super.dispatchTouchEvent(event);  
+}  
+```  
+  
+`requestDisallowInterceptTouchEvent`方法通过改变`FLAG_DISALLOW_INTERCEPT`标记位拦截事件，但是`ACTION_DOWN`事件不受这个标记位的控制  
+  
+## onTouch 和 onTouchEvent 的区别  
 对于View，我们可以通过重写`onTouchEvent`方法来处理Touch事件，也可以通过实现`OnTouchListener`的接口，然后在`onTouch`方法中达到同样的目的，这两种监听有什么区别呢？  
   
 这两个方法都是在View的`dispatchTouchEvent`中调用的，`onTouch`优先于`onTouchEvent`执行。如果在`onTouch`方法中通过返回true将事件消费掉，`onTouchEvent`将不会再执行。  

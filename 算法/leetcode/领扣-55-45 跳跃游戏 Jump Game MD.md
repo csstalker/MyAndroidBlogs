@@ -11,7 +11,7 @@
 目录  
 ===  
 
-- [[跳跃游戏-55 Jump Game](https://leetcode-cn.com/problems/jump-game/)](#跳跃游戏-55-jump-gamehttpsleetcode-cncomproblemsjump-game)
+- [[跳跃游戏-55 Jump Game](https://leetcode-cn.com/problems/jump-game/)](#跳跃游戏-55-Jump-Gamehttpsleetcode-cncomproblemsjump-game)
 	- [问题](#问题)
 	- [贪心算法(逻辑简单且效率高)](#贪心算法逻辑简单且效率高)
 		- [形式一(正宗算法)](#形式一正宗算法)

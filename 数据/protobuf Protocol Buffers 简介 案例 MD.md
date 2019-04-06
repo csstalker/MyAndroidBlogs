@@ -20,7 +20,7 @@ protobuf Protocol Buffers 简介 案例
 	- [编译 .proto 文件生成 java 类](#编译-proto-文件生成-java-类)
 	- [项目中添加 protobuf runtime](#项目中添加-protobuf-runtime)
 	- [测试 java 类](#测试-java-类)
-- [在 Android 中使用 Java Lite runtime](#在-android-中使用-java-lite-runtime)
+- [在 Android 中使用 Java Lite runtime](#在-Android-中使用-Java-Lite-runtime)
   
 # 简介  
 [案例](https://github.com/baiqiantao/ProtocolBufferTest.git)  

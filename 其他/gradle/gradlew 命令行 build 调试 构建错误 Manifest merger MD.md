@@ -11,7 +11,7 @@ gradlew 命令行 build 调试 构建错误 Manifest merger failed MD
 目录  
 ===  
 
-- [解决 Manifest merger failed 问题](#解决-manifest-merger-failed-问题)
+- [解决 Manifest merger failed 问题](#解决-Manifest-merger-failed-问题)
 - [使用 gradlew 命令调试构建过程](#使用-gradlew-命令调试构建过程)
 	- [gradlew 命令可配置的参数](#gradlew-命令可配置的参数)
 	- [获取所有 task](#获取所有-task)
@@ -22,8 +22,8 @@ gradlew 命令行 build 调试 构建错误 Manifest merger failed MD
 ```  
 Manifest merger failed with multiple errors, see logs  
 ```  
-![](http://pfpk8ixun.bkt.clouddn.com/markdown-img-paste-20181005031541196.png)    
-![](http://pfpk8ixun.bkt.clouddn.com/markdown-img-paste-20181005031548180.png)    
+![](index_files/c4fb8e79-4158-4eb5-aade-1779df90b3a7.png)    
+![](index_files/22ce74f6-c1a3-4f65-a26b-66b76e7c8b0f.png)    
   
 但是要命的是，你管你怎么找，除了这个log，再没有什么其他的有用信息了，怎么办？  
   

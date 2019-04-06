@@ -11,7 +11,7 @@
 目录  
 ===  
 
-- [[位1的个数 Number of 1 Bits](https://leetcode-cn.com/problems/number-of-1-bits/)](#位1的个数-number-of-1-bitshttpsleetcode-cncomproblemsnumber-of-1-bits)
+- [[位1的个数 Number of 1 Bits](https://leetcode-cn.com/problems/number-of-1-bits/)](#位1的个数-Number-of-1-Bitshttpsleetcode-cncomproblemsnumber-of-1-bits)
 	- [问题](#问题)
 	- [方式一：字符比较](#方式一：字符比较)
 	- [方式二：取余运算或位运算](#方式二：取余运算或位运算)

@@ -13,21 +13,21 @@ WebView JS交互 JSBridge 案例 原理 MD
 
 - [简介](#简介)
 	- [gradle配置](#gradle配置)
-	- [Java端：注册提供给JS端调用的接口](#java端：注册提供给js端调用的接口)
-	- [JS端：注册提供给Java端调用的接口](#js端：注册提供给java端调用的接口)
-	- [JS 端注意事项](#js-端注意事项)
+	- [Java端：注册提供给JS端调用的接口](#Java端：注册提供给JS端调用的接口)
+	- [JS端：注册提供给Java端调用的接口](#JS端：注册提供给Java端调用的接口)
+	- [JS 端注意事项](#JS-端注意事项)
 - [源码解析](#源码解析)
-	- [BridgeWebView](#bridgewebview)
+	- [BridgeWebView](#BridgeWebView)
 	- [java 调用 js 中注册的方法](#java-调用-js-中注册的方法)
 		- [调用过程](#调用过程)
 		- [回调过程](#回调过程)
 		- [一个疑惑](#一个疑惑)
 	- [js 调用 java 中注册的方法](#js-调用-java-中注册的方法)
-- [一个完整的Demo](#一个完整的demo)
-	- [MainActivity](#mainactivity)
-	- [注册的BridgeHandler](#注册的bridgehandler)
-	- [HTML+JS源码](#htmljs源码)
-- [DSBridge 简介](#dsbridge-简介)
+- [一个完整的Demo](#一个完整的Demo)
+	- [MainActivity](#MainActivity)
+	- [注册的BridgeHandler](#注册的BridgeHandler)
+	- [HTML+JS源码](#HTMLJS源码)
+- [DSBridge 简介](#DSBridge-简介)
 	- [特性](#特性)
 	- [使用](#使用)
   
@@ -57,7 +57,7 @@ Android调用JS有两种方式：
 - webView.loadUrl();  
 - webView.evaluateJavascript()  
   
-![mark](http://pfpk8ixun.bkt.clouddn.com/blog/181021/ig0H31Bajf.png?imageslim)  
+![](index_files/4b262f29-de19-4c20-8b28-1879e3a56e8c.png)  
   
 ## gradle配置  
 在project的build.gradle中引入`jitpack.io`：  

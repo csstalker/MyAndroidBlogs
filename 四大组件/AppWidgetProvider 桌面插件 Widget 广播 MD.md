@@ -12,14 +12,14 @@ AppWidgetProvider 桌面插件 Widget 广播
 ===  
 
 - [简介](#简介)
-- [AppWidget 框架类](#appwidget-框架类)
-- [AppWidgetManger 常用 API](#appwidgetmanger-常用-api)
+- [AppWidget 框架类](#AppWidget-框架类)
+- [AppWidgetManger 常用 API](#AppWidgetManger-常用-API)
 - [开发步骤](#开发步骤)
 	- [定义小工具界面](#定义小工具界面)
 	- [定义小工具配置信息](#定义小工具配置信息)
 	- [定义小工具类](#定义小工具类)
 	- [声明小工具类](#声明小工具类)
-	- [与 Activity 的交互](#与-activity-的交互)
+	- [与 Activity 的交互](#与-Activity-的交互)
 	- [工具类](#工具类)
   
 # 简介  

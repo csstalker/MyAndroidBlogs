@@ -11,7 +11,7 @@
 目录  
 ===  
 
-- [[三角形最小路径和 Triangle](https://leetcode-cn.com/problems/triangle/)](#三角形最小路径和-trianglehttpsleetcode-cncomproblemstriangle)
+- [[三角形最小路径和 Triangle](https://leetcode-cn.com/problems/triangle/)](#三角形最小路径和-Trianglehttpsleetcode-cncomproblemstriangle)
 	- [问题](#问题)
 	- [动态规划(基础)](#动态规划基础)
 		- [分析](#分析)

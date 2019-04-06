@@ -12,18 +12,18 @@ Openfire XMPP Smack RTC IM 即时通讯 聊天 MD
 ===  
 
 - [简介](#简介)
-	- [Openfire 简介](#openfire-简介)
+	- [Openfire 简介](#Openfire-简介)
 	- [相关的几个名词](#相关的几个名词)
-		- [Smack](#smack)
-		- [Spark](#spark)
-		- [JID](#jid)
-		- [XMPP](#xmpp)
-	- [Openfire 安装配置](#openfire-安装配置)
-- [Stanza 节](#stanza-节)
+		- [Smack](#Smack)
+		- [Spark](#Spark)
+		- [JID](#JID)
+		- [XMPP](#XMPP)
+	- [Openfire 安装配置](#Openfire-安装配置)
+- [Stanza 节](#Stanza-节)
 	- [共同属性](#共同属性)
-	- [Presence 在线状态](#presence-在线状态)
-	- [Message 传递消息](#message-传递消息)
-	- [IQ 请求响应](#iq-请求响应)
+	- [Presence 在线状态](#Presence-在线状态)
+	- [Message 传递消息](#Message-传递消息)
+	- [IQ 请求响应](#IQ-请求响应)
 - [测试代码](#测试代码)
 	- [connect 过程](#connect-过程)
 	- [login 过程](#login-过程)
@@ -33,7 +33,7 @@ Openfire XMPP Smack RTC IM 即时通讯 聊天 MD
 	- [发送消息](#发送消息)
 	- [测试案例代码](#测试案例代码)
 		- [项目结构](#项目结构)
-		- [MainActivity](#mainactivity)
+		- [MainActivity](#MainActivity)
 		- [常用功能封装的工具栏](#常用功能封装的工具栏)
   
 # 简介  
@@ -41,7 +41,8 @@ Demo地址：https://github.com/baiqiantao/OpenFireTest.git
 [官网](https://www.igniterealtime.org/index.jsp)  
 [官方文档](http://download.igniterealtime.org/openfire/docs/latest/documentation/index.html)  
 [OpenFire下载](https://www.igniterealtime.org/downloads/index.jsp#openfire)  
-![mark](http://pfpk8ixun.bkt.clouddn.com/blog/181018/1g44CI3ccb.png?imageslim)  
+  
+![](index_files/8ae59ef1-9cf1-48bd-8cff-f7f61a6b8465.png)  
   
 ## Openfire 简介  
 - Openfire是一个根据开源Apache许可证授权的`实时协作服务器` `real time collaboration (RTC)`。它使用唯一广泛采用的`即时消息开放协议XMPP(Jabber)`。 Openfire非常容易设置和管理，但提供坚如磐石的安全性和性能。  
@@ -130,7 +131,6 @@ Xmpp协议是建立在xml的基础上的，所以，看起来，xmpp协议就像
     <request xmlns='urn:xmpp:receipts'/>  
 </message>  
 ```  
-![mark](http://pfpk8ixun.bkt.clouddn.com/blog/181019/aLLdaC4bBA.png?imageslim)  
   
 客户端 8049a646c63e65e8 接收到的消息：  
 ```xml  
@@ -140,7 +140,6 @@ Xmpp协议是建立在xml的基础上的，所以，看起来，xmpp协议就像
     <send time="2018-10-19 16:08:21:999" xmlns="icitic:msg:single"/>  
 </message>  
 ```  
-![mark](http://pfpk8ixun.bkt.clouddn.com/blog/181019/em7ahdkE8J.png?imageslim)  
   
 其实 XMPP 是一种很类似于http协议的一种`数据传输协议`，用户只需要明白它接收的类型，并理解它返回的类型，就可以很好的利用xmpp来进行数据通讯。  
   
@@ -150,27 +149,16 @@ Xmpp协议是建立在xml的基础上的，所以，看起来，xmpp协议就像
 安装时除了修改一下安装路径，其他一路Next就Ok了。  
   
 安装完毕后会自动启动Openfire服务并自动打开 [配置页面](http://localhost:9090/setup/index.jsp) (可能需要手动刷新一下)。也可以通过双击 `\Openfire\bin\openfire.exe` 或 `\Openfire\bin\openfired.exe` 启动Openfire服务后手动打开配置页面。    
-![mark](http://pfpk8ixun.bkt.clouddn.com/blog/181018/Ggm0D2481A.png?imageslim)  
   
 然后按照指引设置 Openfire 服务器：  
 - 选择语言：中文简体  
 - 配置服务器域名【127.0.0.1】  
-![mark](http://pfpk8ixun.bkt.clouddn.com/blog/181019/EDiBJ267C1.png?imageslim)  
-  
 - 选择数据库  
-![mark](http://pfpk8ixun.bkt.clouddn.com/blog/181019/cD09aK92h2.png?imageslim)  
-  
 - 选择特性配置，默认即可  
 - 设置管理员帐户【0909082401@163.com】【123456a】  
-![mark](http://pfpk8ixun.bkt.clouddn.com/blog/181019/0CahGafhd6.png?imageslim)  
-  
 - 提示安装完成，点击登录管理员[控制台页面](http://localhost:9090/login.jsp)【admin】【123456a】  
 - 进入后可以看到服务器名称等信息【127.0.0.1】  
-![mark](http://pfpk8ixun.bkt.clouddn.com/blog/181019/a09hL622ba.png?imageslim)  
-  
 - 创建用户【admin】【baiqiantao】【bqt】【test】  
-![mark](http://pfpk8ixun.bkt.clouddn.com/blog/181018/A23hIGLFeI.png?imageslim)    
-  
 - 安装spark客户端，这个spark仅仅是拿来测试用的。  
   
 至此代码以外的环境已经配置好了。  
@@ -398,7 +386,6 @@ XMPPUtils.getConnection().login(username, password);
   
 ## connect 过程  
 在建立了Socket后，client会向服务器发出一条xml：  
-![mark](http://pfpk8ixun.bkt.clouddn.com/blog/181019/BglE7h557F.png?imageslim)  
 ```xml  
 <stream:stream xmlns:stream='http://etherx.jabber.org/streams'  
                from='8049a646c63e65e8@oatest.dgcb.com.cn'  
@@ -409,7 +396,7 @@ XMPPUtils.getConnection().login(username, password);
 ```  
   
 服务器解析到上面的指令后，会返回用于告诉client可选的SASL方式  
-![mark](http://pfpk8ixun.bkt.clouddn.com/blog/181019/k7k0d2ldFb.png?imageslim)  
+  
 ```xml  
 <?xml version='1.0' encoding='UTF-8'?>  
 <stream:stream xmlns:stream="http://etherx.jabber.org/streams"  
@@ -442,7 +429,6 @@ XMPPUtils.getConnection().login(username, password);
 ```  
   
 1、客户端选择PLAIN认证方式  
-![mark](http://pfpk8ixun.bkt.clouddn.com/blog/181019/HDA9kkHf41.png?imageslim)  
 ```xml  
 <auth mechanism='PLAIN'  
       xmlns='urn:ietf:params:xml:ns:xmpp-sasl'>ADgwNDlhNjQ2YzYzZTY1ZTgAQkRFNEM3QzBGMzdENEZGRTlENDlGNDcwMTdFNUJCRjc=  
@@ -450,13 +436,11 @@ XMPPUtils.getConnection().login(username, password);
 ```  
   
 服务器通过计算加密后的密码后，服务器将返回  
-![mark](http://pfpk8ixun.bkt.clouddn.com/blog/181019/3eaJcAje5J.png?imageslim)  
 ```xml  
 <success xmlns="urn:ietf:params:xml:ns:xmpp-sasl"/>  
 ```  
   
 2、当客户端收到以上命令后，将首次发起连接的id发送到服务器  
-![mark](http://pfpk8ixun.bkt.clouddn.com/blog/181019/4Lbd6jgBeK.png?imageslim)  
 ```xml  
 <stream:stream xmlns:stream='http://etherx.jabber.org/streams'  
                from='8049a646c63e65e8@oatest.dgcb.com.cn'  
@@ -468,7 +452,6 @@ XMPPUtils.getConnection().login(username, password);
 ```  
   
 这时服务器会返回如下内容说明此时已经成功绑定了当前的Socket  
-![mark](http://pfpk8ixun.bkt.clouddn.com/blog/181019/Ic4EmGdbe4.png?imageslim)  
 ```xml  
 <?xml version='1.0' encoding='UTF-8'?>  
 <stream:stream xmlns:stream="http://etherx.jabber.org/streams"  
@@ -541,7 +524,6 @@ XMPPUtils.getConnection().login(username, password);
 ```  
   
 4、客户端发送绑定Socket的指令：  
-![mark](http://pfpk8ixun.bkt.clouddn.com/blog/181019/f0b225dKlE.png?imageslim)  
 ```xml  
 <iq  
     id='SG6jR-3'  
@@ -553,7 +535,6 @@ XMPPUtils.getConnection().login(username, password);
 ```  
   
 服务器返回绑定了具有指定 JID 的客户端  
-![mark](http://pfpk8ixun.bkt.clouddn.com/blog/181019/JA881Gm69b.png?imageslim)  
 ```xml  
 <iq  
     id="SG6jR-3"  
@@ -582,14 +563,13 @@ XMPPUtils.getConnection().login(username, password);
   
 6、认证  
 因为项目中没有开启认证，所以这里没有报文通讯，只有如下日志：  
-![mark](http://pfpk8ixun.bkt.clouddn.com/blog/181020/i2i1HF336I.png?imageslim)  
   
 至此，客户端的登录过程算是完成了。  
 > 注意，connect 和 login 都是同步操作，所以在 `login(username, password)` 方法调用以后，如果没有报异常，就是登陆成功了。  
   
 ## 获取通讯录  
 登陆以后接着会自动发送一条获取通讯录的指令，并会将通讯录缓存起来，所以以后再获取通讯录时，并不需要访问网络。  
-![mark](http://pfpk8ixun.bkt.clouddn.com/blog/181019/AifLFmjhdl.png?imageslim)  
+  
 ```xml  
 <iq  
     id='gZYnq-5'  
@@ -599,7 +579,7 @@ XMPPUtils.getConnection().login(username, password);
 ```  
   
 服务器将返回  
-![mark](http://pfpk8ixun.bkt.clouddn.com/blog/181019/amaKgD6Kb3.png?imageslim)  
+  
 ```xml  
 <iq  
     id="SG6jR-5"  
@@ -665,7 +645,6 @@ XMPPUtils.getConnection().sendStanza(presence);
 PingManager.getInstanceFor(connection).setPingInterval(60);//ping消息间隔  
 ```  
   
-![mark](http://pfpk8ixun.bkt.clouddn.com/blog/181020/52LIiAFLgd.png?imageslim)  
 ```xml  
 <iq  
     from="oatest.dgcb.com.cn"  
@@ -710,7 +689,6 @@ XMPPUtils.getConnection().sendStanza(msg);
 14:51:02.411 客户端B I/bqt: 【processMessage】  
 14:51:02.412 客户端B I/bqt: 消息类型：chat  
 ```  
-![mark](http://pfpk8ixun.bkt.clouddn.com/blog/181020/9LLL5AikDj.png?imageslim)  
   
 1、客户端A发送消息：  
 ```xml  
@@ -766,7 +744,6 @@ XMPPUtils.getConnection().sendStanza(msg);
   
 ## 测试案例代码  
 ### 项目结构  
-![mark](http://pfpk8ixun.bkt.clouddn.com/blog/181019/H6fB6k95H8.png?imageslim)  
   
 ```java  
 implementation 'org.igniterealtime.smack:smack-android:4.1.4'  

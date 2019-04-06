@@ -11,7 +11,7 @@ Kotlin 特性 语法糖 优势 扩展 高阶 MD
 目录  
 ===  
 
-- [用 Kotlin 开发 Android 项目的优势](#用-kotlin-开发-android-项目的优势)
+- [用 Kotlin 开发 Android 项目的优势](#用-Kotlin-开发-Android-项目的优势)
 	- [有了空安全，再也不怕服务端返回空对象了](#有了空安全，再也不怕服务端返回空对象了)
 	- [转型与智能转换，省力又省心](#转型与智能转换，省力又省心)
 	- [比 switch 更强大的 when](#比-switch-更强大的-when)
@@ -19,11 +19,11 @@ Kotlin 特性 语法糖 优势 扩展 高阶 MD
 	- [线程切换，so easy](#线程切换，so-easy)
 	- [一个关键字实现单例](#一个关键字实现单例)
 	- [自动 getter、setter 及 class 简洁声明](#自动-getter、setter-及-class-简洁声明)
-	- [DSL 式编程](#dsl-式编程)
-	- [委托/代理，SharedPreference 不再麻烦](#委托代理，sharedpreference-不再麻烦)
+	- [DSL 式编程](#DSL-式编程)
+	- [委托/代理，SharedPreference 不再麻烦](#委托代理，SharedPreference-不再麻烦)
 	- [扩展，和工具类说拜拜](#扩展，和工具类说拜拜)
-	- [向 findViewById 说 NO](#向-findviewbyid-说-no)
-	- [简单粗暴的 startActivity](#简单粗暴的-startactivity)
+	- [向 findViewById 说 NO](#向-findViewById-说-NO)
+	- [简单粗暴的 startActivity](#简单粗暴的-startActivity)
 	- [玲珑小巧的 toast](#玲珑小巧的-toast)
 	- [用 apply 方法进行数据组合](#用-apply-方法进行数据组合)
 	- [利用高阶函数搞事情](#利用高阶函数搞事情)

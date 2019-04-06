@@ -14,7 +14,7 @@
 目录  
 ===  
 
-- [Git 命令大全](#git-命令大全)
+- [Git 命令大全](#Git-命令大全)
 	- [常用命令](#常用命令)
 	- [基础命令](#基础命令)
 		- [帮助 [help](https://www.yiibai.com/git/git_help.html)](#帮助-helphttpswwwyiibaicomgitgit_helphtml)

@@ -11,21 +11,21 @@
 目录  
 ===  
 
-- [Cordova 简介](#cordova-简介)
+- [Cordova 简介](#Cordova-简介)
 	- [官网介绍](#官网介绍)
-	- [W3C上的介绍](#w3c上的介绍)
+	- [W3C上的介绍](#W3C上的介绍)
 	- [特点、优缺点](#特点、优缺点)
 	- [体系结构](#体系结构)
 	- [基本原理](#基本原理)
-- [PhoneGap 简介](#phonegap-简介)
-	- [PhoneGap 简介](#phonegap-简介)
-	- [PhoneGap 和 Cordova 的关系](#phonegap-和-cordova-的关系)
-	- [PhoneGap 和 Cordova 如何选](#phonegap-和-cordova-如何选)
+- [PhoneGap 简介](#PhoneGap-简介)
+	- [PhoneGap 简介](#PhoneGap-简介)
+	- [PhoneGap 和 Cordova 的关系](#PhoneGap-和-Cordova-的关系)
+	- [PhoneGap 和 Cordova 如何选](#PhoneGap-和-Cordova-如何选)
 - [零基础案例](#零基础案例)
-	- [Cordova 环境搭建](#cordova-环境搭建)
+	- [Cordova 环境搭建](#Cordova-环境搭建)
 		- [环境检查](#环境检查)
-		- [配置 Node.js 环境](#配置-nodejs-环境)
-		- [安装 Cordova](#安装-cordova)
+		- [配置 Node.js 环境](#配置-Nodejs-环境)
+		- [安装 Cordova](#安装-Cordova)
 	- [项目编写](#项目编写)
 		- [创建项目](#创建项目)
 		- [添加或移除平台](#添加或移除平台)
@@ -102,7 +102,8 @@ Cordova 就是混合型应用。
   
 ## 体系结构  
 cordova应用程序有几个组件。下图显示了cordova应用程序体系结构的high-level视图。    
-![架构图](https://cordova.apache.org/static/img/guide/cordovaapparchitecture.png)  
+  
+![](index_files/f078ade0-b421-431e-8235-7e17d6a9ec3f.png)  
   
 从图中，我们可以看到它提供了`Web APP、WebView、Cordova Plugins`。  
   
@@ -220,8 +221,8 @@ Cordova是`PhoneGap`贡献给`Apache`后的开源项目，是从PhoneGap中抽�
 - 下载 [Node.js](http://nodejs.cn/download/)，你可以根据不同平台系统选择你需要的Node.js安装包。  
 - 选择Windows 安装包，例如 [node-v10.11.0-x64](http://cdn.npm.taobao.org/dist/node/v10.11.0/node-v10.11.0-x64.msi)    
 - 安装一路下一步即可，其中在下图的地方，点击树形图标来选择你需要的安装模式 ,默认以下四项都会安装：  
-![mark](http://pfpk8ixun.bkt.clouddn.com/blog/181016/ljhcm92JeD.png?imageslim)    
-![mark](http://pfpk8ixun.bkt.clouddn.com/blog/181016/1mkADfL7hD.png?imageslim)    
+![](index_files/58387dd8-d0c1-422e-b70a-75fd2e3e7980.png)    
+![](index_files/afcb4bc6-0def-41f7-8c13-7f506e836b59.png)    
   
 > 新版的Node.js已自带npm，安装Node.js时会一起安装，npm的作用就是对Node.js依赖的包进行管理，也可以理解为用来安装/卸载Node.js需要装的东西。  
   
@@ -242,21 +243,21 @@ Cordova是`PhoneGap`贡献给`Apache`后的开源项目，是从PhoneGap中抽�
   
 配置完后，安装个module测试下，我们就安装最常用的express模块：【npm install express -g】    
 -g是全局安装的意思，安装后发现express模块安装在刚才配置的全局模块路径【C:\_Web\node.js\node_global\node_modules\express】中，如果不加    参数 -g ，则会安装在当前路径下。  
-![mark](http://pfpk8ixun.bkt.clouddn.com/blog/181016/Kl39JIGm9f.png?imageslim)    
+![](index_files/4c7954f6-8566-4209-817b-59b8db80b22e.png)    
   
 ### 安装 Cordova  
 全局安装 Cordova  
   
     npm install cordova –g  
   
-![mark](http://pfpk8ixun.bkt.clouddn.com/blog/181016/k33Il7heC6.png?imageslim)    
+![](index_files/03ef6ab9-43bd-46ff-8b13-13c1f1c3a528.png)    
   
 中途若会出现“Error: shasum check failed for” 错误，多数是因为网络问题导致下载插件包失败，可以重试几次。  
   
 ## 项目编写  
 ### 创建项目  
 通过 `cd/d` 命令定位到要创建的cordova项目所在的目录，执行以下命令：`cordova create 文件夹名 包名 应用名`，例如：`cordova create hello com.bq.test helloWorld`  
-![mark](http://pfpk8ixun.bkt.clouddn.com/blog/181016/KIfAkihgg7.png?imageslim)    
+![](index_files/bbef579c-f4bf-4a8c-9198-23029ed5da29.png)    
   
 目录简介：  
 - hooks：自定义扩展功能，存放自定义cordova命令的脚本文件。每个project命令都可以定义before和after的Hook，比如：before_build、after_build。  
@@ -267,27 +268,27 @@ Cordova是`PhoneGap`贡献给`Apache`后的开源项目，是从PhoneGap中抽�
   
 ### 添加或移除平台  
 - 通过 `cd` 命令定位到项目目录，执行`cordova platforms ls`命令检查你电脑支持的平台。    
-![mark](http://pfpk8ixun.bkt.clouddn.com/blog/181016/0i06hE678d.png?imageslim)    
+![](index_files/6e31defe-9a5f-4541-9fab-f7e53604e6d6.png)    
   
 - 如果包含你要添加的平台，则可以通过执行`cordova platform add android`命令添加需要的平台。    
-![mark](http://pfpk8ixun.bkt.clouddn.com/blog/181016/F9f42e38Kl.png?imageslim)    
+![](index_files/4520bf63-9ca0-48cc-956a-760081503e41.png)    
   
 - 可以通过输入`cordova platforms rm android`移除对相应平台的支持。    
 - 可以通过@版本号，来添加不同版本的android平台，如`cordova platforms add android@6.0`  
   
 ### 添加和删除插件  
 - 先到这里去 [搜索插件](http://cordova.apache.org/plugins/)，记录下插件的名称  
-![mark](http://pfpk8ixun.bkt.clouddn.com/blog/181016/KJ8f0bLh4L.png?imageslim)    
+![](index_files/f7d7472b-e5b0-4bac-90c7-e462e5acf9b9.png)    
   
 - 然后添加插件：`cordova plugin add cordova-plugin-camera`  
 ![](index_files/7bfed9c3-ccde-40e1-8806-f1fdf5fbcd4c.png)  
   
 - 删除插件：`cordova plugin rm cordova-plugin-camera`，使用rm和remove都可以  
 - 查看当前安装了哪些插件：`cordova plugin list`  
-![mark](http://pfpk8ixun.bkt.clouddn.com/blog/181016/2KhGKjA4dK.png?imageslim)    
+![](index_files/9c3038a2-a6e6-408b-99b4-7651b63f04ee.png)    
   
 这里的列表应该与文件目录的列表相同：  
-![mark](http://pfpk8ixun.bkt.clouddn.com/blog/181016/mB545Kb33H.png?imageslim)    
+![](index_files/2c3a480c-3ef7-4211-9069-55d3bbc5a37c.png)    
   
 ### 编写web页面  
 一个简单的主页是这样的：  
@@ -340,12 +341,12 @@ Cordova是`PhoneGap`贡献给`Apache`后的开源项目，是从PhoneGap中抽�
   
 ### 编译调试  
 在命令窗口执行编译调指定平台的应用：`cordova build android`  
-![mark](http://pfpk8ixun.bkt.clouddn.com/blog/181016/JFDDiH1igm.png?imageslim)    
+![](index_files/7d87aafa-7d9d-4437-b66b-8aea1248ff6f.png)    
   
-![mark](http://pfpk8ixun.bkt.clouddn.com/blog/181016/bJlfFcc6LB.png?imageslim)    
+![](index_files/9106a8d1-aa1c-4b43-9636-8cd714d9efe3.png)    
   
 完成后就在 `\platforms\android\app\build\outputs\apk\debug` 目录下生成了我们需要的Android安装包。  
-![mark](http://pfpk8ixun.bkt.clouddn.com/blog/181017/cHB8BL1HF5.png?imageslim)    
+![](index_files/94dc2f4c-6fef-48a1-9241-5f4cd5dff6ea.png)    
   
 ### cordova 常用命令  
 常用的几个命令：  
@@ -372,7 +373,7 @@ Cordova是`PhoneGap`贡献给`Apache`后的开源项目，是从PhoneGap中抽�
   
 这个项目我放在了这个[GitHub仓库](https://github.com/baiqiantao/CordovaTest.git) 中。  
   
-![mark](http://pfpk8ixun.bkt.clouddn.com/blog/181017/4km3ab9cDl.png?imageslim)    
+![](index_files/f1721b8f-9c8c-4e7b-99fe-cc8aabc3a6dd.png)    
   
 ### 核心代码  
 ```java  

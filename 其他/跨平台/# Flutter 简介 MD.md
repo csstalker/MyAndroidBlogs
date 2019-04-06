@@ -11,8 +11,8 @@ Flutter 简介
 目录  
 ===  
 
-- [Flutter 1.0 正式版: Google 的便携 UI 工具包](#flutter-10-正式版-google-的便携-ui-工具包)
-	- [Flutter 的 特点](#flutter-的-特点)
+- [Flutter 1.0 正式版: Google 的便携 UI 工具包](#Flutter-10-正式版-Google-的便携-UI-工具包)
+	- [Flutter 的 特点](#Flutter-的-特点)
   
 # Flutter 1.0 正式版: Google 的便携 UI 工具包  
 [原文](https://mp.weixin.qq.com/s/hCIN42OMmmc6HkOveegwWQ)  

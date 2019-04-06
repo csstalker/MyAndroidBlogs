@@ -11,8 +11,8 @@
 目录  
 ===  
 
-- [Runnable](#runnable)
-- [Thread](#thread)
+- [Runnable](#Runnable)
+- [Thread](#Thread)
 	- [简介](#简介)
 	- [构造方法](#构造方法)
 	- [常量](#常量)

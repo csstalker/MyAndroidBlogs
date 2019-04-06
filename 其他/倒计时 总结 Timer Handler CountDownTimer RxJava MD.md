@@ -11,20 +11,20 @@
 目录  
 ===  
 
-- [利用系统API的几种实现方式](#利用系统api的几种实现方式)
-	- [使用 CountDownTimer 实现 - 最简洁【推荐】](#使用-countdowntimer-实现---最简洁【推荐】)
-		- [CountDownTimer 简介](#countdowntimer-简介)
+- [利用系统API的几种实现方式](#利用系统API的几种实现方式)
+	- [使用 CountDownTimer 实现 - 最简洁【推荐】](#使用-CountDownTimer-实现---最简洁【推荐】)
+		- [CountDownTimer 简介](#CountDownTimer-简介)
 		- [使用案例](#使用案例)
-	- [使用 RxJava 实现 - 方便强大【推荐】](#使用-rxjava-实现---方便强大【推荐】)
-	- [使用 Timer + Handler 实现 - 麻烦【不推荐】](#使用-timer--handler-实现---麻烦【不推荐】)
-		- [Timer + 普通 Handler - 麻烦](#timer--普通-handler---麻烦)
-		- [Timer + 静态 Handler - 更麻烦](#timer--静态-handler---更麻烦)
-		- [Timer + runOnUiThread - 也麻烦](#timer--runonuithread---也麻烦)
-	- [使用纯 Handler 实现 - 特麻烦【强烈不建议】](#使用纯-handler-实现---特麻烦【强烈不建议】)
-- [开源框架 CountdownView 简介](#开源框架-countdownview-简介)
-- [在 RecyclerView 中实现倒计时](#在-recyclerview-中实现倒计时)
+	- [使用 RxJava 实现 - 方便强大【推荐】](#使用-RxJava-实现---方便强大【推荐】)
+	- [使用 Timer + Handler 实现 - 麻烦【不推荐】](#使用-Timer--Handler-实现---麻烦【不推荐】)
+		- [Timer + 普通 Handler - 麻烦](#Timer--普通-Handler---麻烦)
+		- [Timer + 静态 Handler - 更麻烦](#Timer--静态-Handler---更麻烦)
+		- [Timer + runOnUiThread - 也麻烦](#Timer--runOnUiThread---也麻烦)
+	- [使用纯 Handler 实现 - 特麻烦【强烈不建议】](#使用纯-Handler-实现---特麻烦【强烈不建议】)
+- [开源框架 CountdownView 简介](#开源框架-CountdownView-简介)
+- [在 RecyclerView 中实现倒计时](#在-RecyclerView-中实现倒计时)
 	- [更改数据源方式 - 简单但不可靠](#更改数据源方式---简单但不可靠)
-	- [让 System 帮我们倒计时 - 推荐](#让-system-帮我们倒计时---推荐)
+	- [让 System 帮我们倒计时 - 推荐](#让-System-帮我们倒计时---推荐)
 	- [自己维护倒计时 - 既麻烦又低效](#自己维护倒计时---既麻烦又低效)
   
 # 利用系统API的几种实现方式  

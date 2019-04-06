@@ -11,13 +11,13 @@
 目录  
 ===  
 
-- [依赖注入 Dependency injection](#依赖注入-dependency-injection)
-	- [Step1 设计](#step1-设计)
-	- [Step2 设计](#step2-设计)
-	- [Step3 设计](#step3-设计)
+- [依赖注入 Dependency injection](#依赖注入-Dependency-injection)
+	- [Step1 设计](#Step1-设计)
+	- [Step2 设计](#Step2-设计)
+	- [Step3 设计](#Step3-设计)
 	- [总结](#总结)
-- [控制反转 Inversion Of Control](#控制反转-inversion-of-control)
-- [JAVA中依赖注入的几种方式](#java中依赖注入的几种方式)
+- [控制反转 Inversion Of Control](#控制反转-Inversion-Of-Control)
+- [JAVA中依赖注入的几种方式](#JAVA中依赖注入的几种方式)
   
 # 依赖注入 Dependency injection  
 这里通过一个简单的案例来说明。  

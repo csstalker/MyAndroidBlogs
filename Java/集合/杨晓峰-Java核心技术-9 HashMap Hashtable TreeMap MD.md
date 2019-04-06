@@ -11,13 +11,13 @@
 目录  
 ===  
 
-- [[第9讲 | 对比Hashtable、HashMap、TreeMap有什么不同？](https://time.geekbang.org/column/article/8053)](#第9讲--对比hashtable、hashmap、treemap有什么不同？httpstimegeekbangorgcolumnarticle8053)
+- [[第9讲 | 对比Hashtable、HashMap、TreeMap有什么不同？](https://time.geekbang.org/column/article/8053)](#第9讲--对比Hashtable、HashMap、TreeMap有什么不同？httpstimegeekbangorgcolumnarticle8053)
 	- [典型回答](#典型回答)
 	- [考点分析](#考点分析)
 	- [知识扩展](#知识扩展)
-		- [Map 整体结构](#map-整体结构)
-		- [有序 Map](#有序-map)
-		- [HashMap 源码分析](#hashmap-源码分析)
+		- [Map 整体结构](#Map-整体结构)
+		- [有序 Map](#有序-Map)
+		- [HashMap 源码分析](#HashMap-源码分析)
 		- [容量、负载因子和树化](#容量、负载因子和树化)
 	- [精选留言](#精选留言)
   

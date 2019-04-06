@@ -11,30 +11,30 @@ HashMap 哈希表 数据结构 hash冲突 面试题 MD
 目录  
 ===  
 
-- [HashMap概述](#hashmap概述)
-- [HashMap的数据结构](#hashmap的数据结构)
-- [HashMap源码分析](#hashmap源码分析)
+- [HashMap概述](#HashMap概述)
+- [HashMap的数据结构](#HashMap的数据结构)
+- [HashMap源码分析](#HashMap源码分析)
 	- [常量](#常量)
 	- [关键属性](#关键属性)
 	- [构造方法](#构造方法)
 	- [put 方法分析【重点】](#put-方法分析【重点】)
-		- [putForNullKey](#putfornullkey)
+		- [putForNullKey](#putForNullKey)
 		- [hash](#hash)
-		- [indexFor](#indexfor)
+		- [indexFor](#indexFor)
 		- [容量大小的设计考虑](#容量大小的设计考虑)
-		- [addEntry](#addentry)
+		- [addEntry](#addEntry)
 		- [resize](#resize)
 	- [get 方法分析](#get-方法分析)
-	- [Fail-Fast机制](#fail-fast机制)
+	- [Fail-Fast机制](#Fail-Fast机制)
 - [深入理解哈希表](#深入理解哈希表)
 	- [问题](#问题)
 	- [哈希表概述](#哈希表概述)
 	- [哈希函数](#哈希函数)
-	- [Java 和 Redis 的解决方案](#java-和-redis-的解决方案)
+	- [Java 和 Redis 的解决方案](#Java-和-Redis-的解决方案)
 	- [总结](#总结)
 - [面试题](#面试题)
-	- [HashMap 面试题](#hashmap-面试题)
-	- [HashMap与HashTable区别](#hashmap与hashtable区别)
+	- [HashMap 面试题](#HashMap-面试题)
+	- [HashMap与HashTable区别](#HashMap与HashTable区别)
   
 # HashMap概述  
 HashMap是基于`哈希表`的 Map 接口的实现。  
@@ -96,11 +96,11 @@ static class Entry<K, V> implements Map.Entry<K, V> {
 在 HashMap 中定义了几个常量：  
 ```java  
 static final int DEFAULT_INITIAL_CAPACITY = 1 << 4; //默认初始容量 = 16  
-static final int MAXIMUM_CAPACITY = 1 << 30; //最大容量  
 static final float DEFAULT_LOAD_FACTOR = 0.75f; //默认加载因子  
 static final int TREEIFY_THRESHOLD = 8; //默认为链表，当链表长度大于 8 时，有可能会转化成树  
 static final int MIN_TREEIFY_CAPACITY = 64; //在转变成树之前，还会有一次判断，只有键值对数量大于 64 才会发生转换  
 static final int UNTREEIFY_THRESHOLD = 6; //哈希表扩容时，如果发现链表长度小于 6，则会由树重新退化为链表  
+static final int MAXIMUM_CAPACITY = 1 << 30; //最大容量(用不到)  
 ```  
   
 这些常量的意义：  

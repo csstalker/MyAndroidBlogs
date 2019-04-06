@@ -11,17 +11,17 @@
 目录  
 ===  
 
-- [Timer 计时器](#timer-计时器)
-- [TimerTask 计时任务](#timertask-计时任务)
+- [Timer 计时器](#Timer-计时器)
+- [TimerTask 计时任务](#TimerTask-计时任务)
 - [案例](#案例)
 	- [案例1：延时执行指定任务](#案例1：延时执行指定任务)
 	- [案例2：执行定时任务](#案例2：执行定时任务)
-- [Timer 的缺陷](#timer-的缺陷)
-	- [Timer 抛出异常缺陷](#timer-抛出异常缺陷)
-	- [Timer 管理时间延迟缺陷](#timer-管理时间延迟缺陷)
-- [用 ScheduledExecutorService 替代 Timer](#用-scheduledexecutorservice-替代-timer)
-	- [可以规避 Timer 抛出异常缺陷](#可以规避-timer-抛出异常缺陷)
-	- [可以规避 Timer 管理时间延迟缺陷](#可以规避-timer-管理时间延迟缺陷)
+- [Timer 的缺陷](#Timer-的缺陷)
+	- [Timer 抛出异常缺陷](#Timer-抛出异常缺陷)
+	- [Timer 管理时间延迟缺陷](#Timer-管理时间延迟缺陷)
+- [用 ScheduledExecutorService 替代 Timer](#用-ScheduledExecutorService-替代-Timer)
+	- [可以规避 Timer 抛出异常缺陷](#可以规避-Timer-抛出异常缺陷)
+	- [可以规避 Timer 管理时间延迟缺陷](#可以规避-Timer-管理时间延迟缺陷)
   
 # Timer 计时器  
 Timer可以定时(在指定时间执行任务)、延迟(延迟指定时间执行任务)、周期性地执行任务(每隔指定时间执行一次任务)。  

@@ -11,7 +11,7 @@ AutoRegister ASM AOP 字节码 案例 原理
 目录  
 ===  
 
-- [AutoRegister 自动注册插件简介](#autoregister-自动注册插件简介)
+- [AutoRegister 自动注册插件简介](#AutoRegister-自动注册插件简介)
 - [使用案例](#使用案例)
 	- [配置](#配置)
 	- [测试一](#测试一)

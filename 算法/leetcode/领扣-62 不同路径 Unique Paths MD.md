@@ -11,11 +11,11 @@
 目录  
 ===  
 
-- [[不同路径 Unique Paths](https://leetcode-cn.com/problems/unique-paths/)](#不同路径-unique-pathshttpsleetcode-cncomproblemsunique-paths)
+- [[不同路径 Unique Paths](https://leetcode-cn.com/problems/unique-paths/)](#不同路径-Unique-Pathshttpsleetcode-cncomproblemsunique-paths)
 	- [问题](#问题)
 	- [递归法](#递归法)
 		- [暴力递归](#暴力递归)
-		- [递归优化-HashMap](#递归优化-hashmap)
+		- [递归优化-HashMap](#递归优化-HashMap)
 		- [递归优化-二维数组](#递归优化-二维数组)
 	- [动态规划](#动态规划)
 		- [二维数组](#二维数组)

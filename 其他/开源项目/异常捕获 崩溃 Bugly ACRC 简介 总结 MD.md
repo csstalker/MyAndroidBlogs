@@ -11,32 +11,39 @@
 目录  
 ===  
 
-- [腾讯 Bugly](#腾讯-bugly)
+- [腾讯 Bugly](#腾讯-Bugly)
 	- [介绍](#介绍)
 	- [最简单的接入配置](#最简单的接入配置)
 	- [高级功能](#高级功能)
 		- [上传开发者catch的异常](#上传开发者catch的异常)
-		- [上传自定义日志](#上传自定义日志)
 		- [js 的异常捕获功能](#js-的异常捕获功能)
-		- [配置用户策略 UserStrategy](#配置用户策略-userstrategy)
-		- [设置 Crash 回调](#设置-crash-回调)
-		- [使用 MultiDex 的注意事项](#使用-multidex-的注意事项)
+		- [配置用户策略 UserStrategy](#配置用户策略-UserStrategy)
+		- [设置 Crash 回调](#设置-Crash-回调)
+		- [使用 MultiDex 的注意事项](#使用-MultiDex-的注意事项)
 		- [上报进程控制](#上报进程控制)
-		- [其他设置](#其他设置)
-- [ACRA](#acra)
+	- [其他设置](#其他设置)
+		- [设置自定义标签](#设置自定义标签)
+		- [设置自定义Map参数](#设置自定义Map参数)
+		- [设置开发设备](#设置开发设备)
+		- [设置用户ID](#设置用户ID)
+		- [上传自定义日志](#上传自定义日志)
+- [ACRA：安卓应用崩溃报告](#ACRA：安卓应用崩溃报告)
 	- [介绍](#介绍)
 	- [基本配置](#基本配置)
 	- [初始化](#初始化)
-	- [使用案例](#使用案例)
-- [CustomActivityOnCrash](#customactivityoncrash)
+		- [定义的注解](#定义的注解)
+		- [可用的 Builder](#可用的-Builder)
+	- [完整使用案例](#完整使用案例)
+- [CustomActivityOnCrash：自定义崩溃界面](#CustomActivityOnCrash：自定义崩溃界面)
+	- [基本使用](#基本使用)
 	- [自定义配置](#自定义配置)
-	- [CustomEventListener 监听](#customeventlistener-监听)
+	- [CustomEventListener 监听](#CustomEventListener-监听)
 	- [完全自定义错误 activity](#完全自定义错误-activity)
+	- [测试代码](#测试代码)
+		- [自定义崩溃Activity](#自定义崩溃Activity)
+		- [设置](#设置)
 	- [工作原理](#工作原理)
 	- [不兼容性和免责声明](#不兼容性和免责声明)
-	- [测试代码](#测试代码)
-		- [自定义崩溃Activity](#自定义崩溃activity)
-		- [设置](#设置)
   
 # 腾讯 Bugly  
 ## 介绍  
@@ -133,24 +140,6 @@ try {
     CrashReport.postCatchedException(thr);  // bugly会将这个throwable上报  
 }  
 ```  
-  
-### 上传自定义日志  
-我们提供了自定义Log的接口，用于记录一些开发者关心的`调试日志`，可以更全面地反应App异常时的前后文环境。使用方式与 android.util.Log 一致。用户传入TAG和日志内容。`该日志将在Logcat输出，并在发生异常时上报`  
-```java  
-BuglyLog.i(tag, log)  
-```  
-  
-在使用`BuglyLog`接口时，为了减少磁盘IO次数，我们会先将日志缓存在`内存`中。当缓存大于一定阈值（默认10K），会将它持久化至`文件`。  
-您可以通过 setCache 接口设置缓存大小，范围为0-30K。  
-```java  
-BuglyLog.setCache(12 * 1024) //将Cache设置为12K  
-```  
-  
-PS：  
-- 如果您没有使用 BuglyLog 接口，且初始化 Bugly 时 isDebug 参数设置为 false，该 Log 功能将不会有新的资源占用。  
-- 为了方便开发者调试，当初始化 Bugly 的 isDebug 参数为 true 时，异常日志同时还会记录 Bugly 本身的日志。  
-- 请在 App 发布时将其设置为false。  
-- 上报Log最大30K。  
   
 ### js 的异常捕获功能  
 Bugly Android SDK 1.2.8及以上版本提供了Javascript的异常捕获和上报能力，以便开发者可以感知到 WebView 中发生的 Javascript  异常。  
@@ -283,15 +272,15 @@ private static String getProcessName(int pid) {
 }  
 ```  
   
-### 其他设置  
-**自定义标签**  
+## 其他设置  
+### 设置自定义标签  
 用于标明App的某个“场景”。在发生Crash时会显示该Crash所在的“场景”，以最后设置的标签为准，标签id需大于0。例：当用户进入界面A时，打上9527的标签：  
 ```java  
 CrashReport.setUserSceneTag(context, 9527); // 上报后的Crash会显示该标签  
 ```  
 打标签之前，需要在Bugly产品页配置中添加标签，取得标签ID后在代码中上报。  
   
-**设置自定义Map参数**  
+### 设置自定义Map参数  
 自定义Map参数可以保存发生Crash时的一些自定义的环境信息。在发生Crash时会随着异常信息一起上报并在页面展示。  
 ```java  
 CrashReport.putUserData(context, "userkey", "uservalue");  
@@ -299,7 +288,7 @@ CrashReport.putUserData(context, "userkey", "uservalue");
 最多可以有9对自定义的key-value（超过则添加失败）；  
 key限长50字节，value限长200字节，过长截断；key必须匹配正则：[a-zA-Z[0-9]]+。  
   
-**设置开发设备**  
+### 设置开发设备  
 在开发测试阶段，可以在初始化Bugly之前通过以下接口把调试设备设置成“开发设备”。  
 ```java  
 CrashReport.setIsDevelopmentDevice(context, true);  
@@ -309,18 +298,32 @@ ADT 17增加了BuildConfig特性，可以通过获取BuildConfig类的DEBUG变�
 CrashReport.setIsDevelopmentDevice(context, BuildConfig.DEBUG);  
 ```  
   
-**设置用户ID**  
+### 设置用户ID  
 您可能会希望能精确定位到某个用户的异常，我们提供了用户ID记录接口。例：网游用户登录后，通过该接口记录用户ID，在页面上可以精确定位到每个用户发生Crash的情况。  
 ```java  
 CrashReport.setUserId("9527");  //该用户本次启动后的异常日志用户ID都将是9527  
 ```  
   
-# ACRA  
-## 介绍  
-[GitHub](https://github.com/ACRA/acra)  
+### 上传自定义日志  
+我们提供了自定义Log的接口，用于记录一些开发者关心的`调试日志`，可以更全面地反应App异常时的前后文环境。使用方式与 `android.util.Log` 一致。用户传入TAG和日志内容。该日志将在Logcat输出，并在发生异常时上报。  
+```java  
+BuglyLog.i(tag, log)  
+```  
   
-Application Crash Report for Android，  
-Android异常日志收集  
+在使用`BuglyLog`接口时，为了减少磁盘IO次数，我们会先将日志缓存在`内存`中。当缓存大于一定阈值（默认10K），会将它持久化至`文件`。您可以通过 setCache 接口设置缓存大小，范围为0-30K。  
+```java  
+BuglyLog.setCache(12 * 1024) //将Cache设置为12K  
+```  
+  
+PS：  
+- 如果您没有使用 BuglyLog 接口，且初始化 Bugly 时 isDebug 参数设置为 false，该 Log 功能将不会有新的资源占用。  
+- 为了方便开发者调试，当初始化 Bugly 的 isDebug 参数为 true 时，异常日志同时还会记录 Bugly 本身的日志。  
+- 请在 App 发布时将其设置为false。  
+- 上报Log最大30K。  
+  
+# ACRA：安卓应用崩溃报告  
+## 介绍  
+[Application Crash Report for Android](https://github.com/ACRA/acra)  
   
 ACRA是一个库，使Android应用程序能够自动将崩溃报告发布到报表服务器。 它针对Android应用程序开发人员，帮助他们在崩溃或行为错误时从应用程序中获取数据。  
 > ACRA is a library enabling Android Application to automatically post their crash reports to a report server. It is targeted to android applications developers to help them get data from their applications when they crash or behave erroneously.  
@@ -342,15 +345,7 @@ ACRA的通知系统很干净。 如果发生崩溃，您的应用程序不会在
 请不要犹豫，在问题跟踪器中打开缺陷/增强功能请求。  
   
 ## 基本配置  
-要求 gradle 版本 3.0.0 或以上，java 8  
-```  
-android {  
-    compileOptions {  
-        sourceCompatibility JavaVersion.VERSION_1_8  
-        targetCompatibility JavaVersion.VERSION_1_8  
-    }  
-}  
-```  
+要求 gradle 版本 3.0.0 或以上，java 8 或以上。  
   
 统一版本管理  
 ```  
@@ -394,7 +389,7 @@ public class MyApplication extends Application {
 }  
 ```  
   
-其他注解：  
+### 定义的注解  
 *   [@AcraHttpSender](https://www.faendir.com/wordpress/acra-javadoc/org/acra/annotation/AcraHttpSender.html)  
 *   [@AcraMailSender](https://www.faendir.com/wordpress/acra-javadoc/org/acra/annotation/AcraMailSender.html)  
 *   [@AcraDialog](https://www.faendir.com/wordpress/acra-javadoc/org/acra/annotation/AcraDialog.html)  
@@ -403,7 +398,7 @@ public class MyApplication extends Application {
 *   [@AcraLimiter](https://www.faendir.com/wordpress/acra-javadoc/org/acra/annotation/AcraLimiter.html)  
 *   [@AcraScheduler](https://www.faendir.com/wordpress/acra-javadoc/org/acra/annotation/AcraScheduler.html)  
   
-可用的 Builder:  
+### 可用的 Builder  
 *   [HttpSenderConfigurationBuilder](https://www.faendir.com/wordpress/acra-javadoc/org/acra/config/HttpSenderConfigurationBuilder.html)  
 *   [MailSenderConfigurationBuilder](https://www.faendir.com/wordpress/acra-javadoc/org/acra/config/MailSenderConfigurationBuilder.html)  
 *   [DialogConfigurationBuilder](https://www.faendir.com/wordpress/acra-javadoc/org/acra/config/DialogConfigurationBuilder.html)  
@@ -412,7 +407,7 @@ public class MyApplication extends Application {
 *   [LimiterConfigurationBuilder](https://www.faendir.com/wordpress/acra-javadoc/org/acra/config/LimiterConfigurationBuilder.html)  
 *   [SchedulerConfigurationBuilder](https://www.faendir.com/wordpress/acra-javadoc/org/acra/config/SchedulerConfigurationBuilder.html)  
   
-## 使用案例  
+## 完整使用案例  
 依赖  
 ```java  
 def acraVersion = '5.1.3'  
@@ -486,12 +481,14 @@ public class App extends Application {
 }  
 ```  
   
-# CustomActivityOnCrash  
+# CustomActivityOnCrash：自定义崩溃界面  
 [GitHub](https://github.com/Ereza/CustomActivityOnCrash)  
   
 该库允许在应用程序崩溃时启动自定义activity，而不是显示讨厌的“Unfortunately, X has stopped”对话框。  
+  
 当然，您可以将此库与任何其他崩溃处理程序（如Crashlytics，ACRA或Firebase）结合使用，只需按照通常的方式进行设置即可。  
   
+## 基本使用  
 依赖：  
 ```java  
 compile 'cat.ereza:customactivityoncrash:2.2.0'  
@@ -632,26 +629,6 @@ The same as CustomActivityOnCrash.restartApplication, but allows you to specify 
 CustomActivityOnCrash.closeApplication(activity, eventListener);  
 ```  
 Closes the app and kills the current process. You MUST call this to close the app, or you will end up having several Application class instances and experience multiprocess issues.否则你最终将拥有多个Application类实例并遇到多进程问题。  
-  
-## 工作原理  
-This library relies on the Thread.setDefaultUncaughtExceptionHandler method. When an exception is caught by the library's UncaughtExceptionHandler it does the following:  
-- Captures捕获 the stack trace that caused the crash  
-- Launches a new intent to the error activity in a new process passing the crash info as an extra.  
-- Kills the current process.  
-The inner workings are based on ACRA's dialog reporting mode报告模式 with some minor tweaks小的调整. Look at the code if you need more detail about how it works.  
-  
-## 不兼容性和免责声明  
-- CustomActivityOnCrash will not work in these cases:  
-    - With any custom UncaughtExceptionHandler set after initializing the library, that does not call back to the original handler.  
-    - With ACRA enabled and reporting mode set to TOAST or DIALOG.  
-- If your app initialization or error activity crash, there is a possibility of entering an infinite restart loop无限重启循环 (this is checked by the library for the most common cases, but could happen in rarer罕见的 cases).  
-- The library has not been tested with multidex enabled. It uses Class.forName() to load classes, so maybe that could cause some problem in API<21. If you test it with such configuration, please provide feedback反馈!  
-- The library has not been tested with multiprocess apps. If you test it with such configuration, please provide feedback too!  
-- Disclaimers  免责声明  
-    - This will not avoid ANRs from happening.  
-    - This will not catch native errors.  
-    - There is no guarantee保证 that this will work on every device.  
-    - This library will not make you toast for breakfast :)  
   
 ## 测试代码  
 ### 自定义崩溃Activity  
@@ -798,5 +775,26 @@ public class SettingActivity extends ListActivity {
     }  
 }  
 ```  
+  
+## 工作原理  
+This library relies on the Thread.setDefaultUncaughtExceptionHandler method. When an exception is caught by the library's UncaughtExceptionHandler it does the following:  
+  
+- Captures捕获 the stack trace that caused the crash  
+- Launches a new intent to the error activity in a new process passing the crash info as an extra.  
+- Kills the current process.  
+The inner workings are based on ACRA's dialog reporting mode报告模式 with some minor tweaks小的调整. Look at the code if you need more detail about how it works.  
+  
+## 不兼容性和免责声明  
+- CustomActivityOnCrash will not work in these cases:  
+    - With any custom UncaughtExceptionHandler set after initializing the library, that does not call back to the original handler.  
+    - With ACRA enabled and reporting mode set to TOAST or DIALOG.  
+- If your app initialization or error activity crash, there is a possibility of entering an infinite restart loop无限重启循环 (this is checked by the library for the most common cases, but could happen in rarer罕见的 cases).  
+- The library has not been tested with multidex enabled. It uses Class.forName() to load classes, so maybe that could cause some problem in API<21. If you test it with such configuration, please provide feedback反馈!  
+- The library has not been tested with multiprocess apps. If you test it with such configuration, please provide feedback too!  
+- Disclaimers  免责声明  
+    - This will not avoid ANRs from happening.  
+    - This will not catch native errors.  
+    - There is no guarantee保证 that this will work on every device.  
+    - This library will not make you toast for breakfast :)  
   
 2018-6-6  

@@ -14,8 +14,8 @@ RV BaseRecyclerViewAdapterHelper 总结 MD
 - [介绍](#介绍)
 	- [添加依赖](#添加依赖)
 	- [功能一览](#功能一览)
-	- [优化Adapter代码](#优化adapter代码)
-	- [Item的点击事件](#item的点击事件)
+	- [优化Adapter代码](#优化Adapter代码)
+	- [Item的点击事件](#Item的点击事件)
 	- [添加列表加载动画](#添加列表加载动画)
 	- [添加头部、尾部](#添加头部、尾部)
 	- [加载更多](#加载更多)
@@ -25,7 +25,7 @@ RV BaseRecyclerViewAdapterHelper 总结 MD
 	- [设置空布局](#设置空布局)
 	- [添加拖拽、滑动删除](#添加拖拽、滑动删除)
 	- [分组的伸缩栏](#分组的伸缩栏)
-	- [自定义BaseViewHolder](#自定义baseviewholder)
+	- [自定义BaseViewHolder](#自定义BaseViewHolder)
 	- [案例](#案例)
   
 # 介绍  

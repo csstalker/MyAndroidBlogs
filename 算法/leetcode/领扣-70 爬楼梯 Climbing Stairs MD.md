@@ -11,7 +11,7 @@
 目录  
 ===  
 
-- [[爬楼梯 Climbing Stairs](https://leetcode-cn.com/problems/climbing-stairs/)](#爬楼梯-climbing-stairshttpsleetcode-cncomproblemsclimbing-stairs)
+- [[爬楼梯 Climbing Stairs](https://leetcode-cn.com/problems/climbing-stairs/)](#爬楼梯-Climbing-Stairshttpsleetcode-cncomproblemsclimbing-stairs)
 	- [题目](#题目)
 	- [递归方式(最简单)](#递归方式最简单)
 	- [递归方式优化(空间换时间)](#递归方式优化空间换时间)
