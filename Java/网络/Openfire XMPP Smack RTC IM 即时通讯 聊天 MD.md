@@ -126,7 +126,7 @@ Xmpp协议是建立在xml的基础上的，所以，看起来，xmpp协议就像
   
 客户端 8049a646c63e65e8 发出去的消息：  
 ```xml  
-<message from='8049a646c63e65e8@oatest.dgcb.com.cn/phone' id='5U6Mk-5' to='903e652d2334628a@oatest.dgcb.com.cn' type='chat'>  
+<message from='8049a646c63e65e8@oatest.abcd.com.cn/phone' id='5U6Mk-5' to='903e652d2334628a@oatest.abcd.com.cn' type='chat'>  
     <body>{"fromId":"8049a646c63e65e8","fromName":"韩大东","messageType":1,"secret":false,"textContent":"你好","toName":"郑西风","toUserID":"903e652d2334628a"}</body>  
     <request xmlns='urn:xmpp:receipts'/>  
 </message>  
@@ -134,7 +134,7 @@ Xmpp协议是建立在xml的基础上的，所以，看起来，xmpp协议就像
   
 客户端 8049a646c63e65e8 接收到的消息：  
 ```xml  
-<message from="903e652d2334628a@oatest.dgcb.com.cn/phone" id="Bw4c9-4" to="8049a646c63e65e8@oatest.dgcb.com.cn" type="chat">  
+<message from="903e652d2334628a@oatest.abcd.com.cn/phone" id="Bw4c9-4" to="8049a646c63e65e8@oatest.abcd.com.cn" type="chat">  
     <body>{"fromId":"903e652d2334628a","fromName":"郑西风","messageType":1,"secret":false,"textContent":"你好"}</body>  
     <request xmlns="urn:xmpp:receipts"/>  
     <send time="2018-10-19 16:08:21:999" xmlns="icitic:msg:single"/>  
