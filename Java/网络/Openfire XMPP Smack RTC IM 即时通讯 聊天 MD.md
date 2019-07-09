@@ -388,8 +388,8 @@ XMPPUtils.getConnection().login(username, password);
 在建立了Socket后，client会向服务器发出一条xml：  
 ```xml  
 <stream:stream xmlns:stream='http://etherx.jabber.org/streams'  
-               from='8049a646c63e65e8@oatest.dgcb.com.cn'  
-               to='oatest.dgcb.com.cn'  
+               from='8049a646c63e65e8@oatest.abcd.com.cn'  
+               to='oatest.abcd.com.cn'  
                version='1.0'  
                xmlns='jabber:client'  
                xml:lang='en'>  
@@ -400,7 +400,7 @@ XMPPUtils.getConnection().login(username, password);
 ```xml  
 <?xml version='1.0' encoding='UTF-8'?>  
 <stream:stream xmlns:stream="http://etherx.jabber.org/streams"  
-               from="oatest.dgcb.com.cn"  
+               from="oatest.abcd.com.cn"  
                id="36ebm4blnf"  
                version="1.0"  
                xmlns="jabber:client"  
@@ -443,9 +443,9 @@ XMPPUtils.getConnection().login(username, password);
 2、当客户端收到以上命令后，将首次发起连接的id发送到服务器  
 ```xml  
 <stream:stream xmlns:stream='http://etherx.jabber.org/streams'  
-               from='8049a646c63e65e8@oatest.dgcb.com.cn'  
+               from='8049a646c63e65e8@oatest.abcd.com.cn'  
                id='36ebm4blnf'  
-               to='oatest.dgcb.com.cn'  
+               to='oatest.abcd.com.cn'  
                version='1.0'  
                xmlns='jabber:client'  
                xml:lang='en'>  
@@ -455,7 +455,7 @@ XMPPUtils.getConnection().login(username, password);
 ```xml  
 <?xml version='1.0' encoding='UTF-8'?>  
 <stream:stream xmlns:stream="http://etherx.jabber.org/streams"  
-               from="oatest.dgcb.com.cn"  
+               from="oatest.abcd.com.cn"  
                id="36ebm4blnf"  
                version="1.0"  
                xmlns="jabber:client"  
@@ -538,10 +538,10 @@ XMPPUtils.getConnection().login(username, password);
 ```xml  
 <iq  
     id="SG6jR-3"  
-    to="oatest.dgcb.com.cn/36ebm4blnf"  
+    to="oatest.abcd.com.cn/36ebm4blnf"  
     type="result">  
     <bind xmlns="urn:ietf:params:xml:ns:xmpp-bind">  
-        <jid>8049a646c63e65e8@oatest.dgcb.com.cn/phone</jid>  
+        <jid>8049a646c63e65e8@oatest.abcd.com.cn/phone</jid>  
     </bind>  
 </iq>  
 ```  
@@ -583,20 +583,20 @@ XMPPUtils.getConnection().login(username, password);
 ```xml  
 <iq  
     id="SG6jR-5"  
-    to="8049a646c63e65e8@oatest.dgcb.com.cn/phone"  
+    to="8049a646c63e65e8@oatest.abcd.com.cn/phone"  
     type="result">  
     <query ver="-491295515"  
            xmlns="jabber:iq:roster">  
         <item  
             name="李**"  
-            jid="0347a8a25e9074b0@oatest.dgcb.com.cn"  
+            jid="0347a8a25e9074b0@oatest.abcd.com.cn"  
             subscription="to"/>  
         <item  
-            jid="903e652d2334628a@oatest.dgcb.com.cn"  
+            jid="903e652d2334628a@oatest.abcd.com.cn"  
             subscription="from"/>  
         <item  
             ask="subscribe"  
-            jid="28af56d053cbbf3e@oatest.dgcb.com.cn"  
+            jid="28af56d053cbbf3e@oatest.abcd.com.cn"  
             subscription="none"/>  
     </query>  
 </iq>  
@@ -613,7 +613,7 @@ XMPPUtils.getConnection().sendStanza(presence);
 客户端发送 presence 消息告诉服务器自己在线：  
 ```xml  
 <presence  
-    from='8049a646c63e65e8@oatest.dgcb.com.cn/phone'  
+    from='8049a646c63e65e8@oatest.abcd.com.cn/phone'  
     id='91kqC-27'>  
     <status>IchatMM</status>  
     <priority>0</priority>  
@@ -627,8 +627,8 @@ XMPPUtils.getConnection().sendStanza(presence);
 服务器响应：  
 ```xml  
 <presence  
-    from="c53706e24ce32f72@oatest.dgcb.com.cn/pc"  
-    to="8049a646c63e65e8@oatest.dgcb.com.cn/phone">  
+    from="c53706e24ce32f72@oatest.abcd.com.cn/pc"  
+    to="8049a646c63e65e8@oatest.abcd.com.cn/phone">  
     <priority>0</priority>  
     <c hash="sha-1"  
        node="http://camaya.net/gloox"  
@@ -647,9 +647,9 @@ PingManager.getInstanceFor(connection).setPingInterval(60);//ping消息间隔
   
 ```xml  
 <iq  
-    from="oatest.dgcb.com.cn"  
+    from="oatest.abcd.com.cn"  
     id="553-595"  
-    to="8049a646c63e65e8@oatest.dgcb.com.cn/phone"  
+    to="8049a646c63e65e8@oatest.abcd.com.cn/phone"  
     type="get">  
     <ping xmlns="urn:xmpp:ping"/>  
 </iq>  
@@ -659,7 +659,7 @@ PingManager.getInstanceFor(connection).setPingInterval(60);//ping消息间隔
 ```xml  
 <iq  
     id='553-595'  
-    to='oatest.dgcb.com.cn'  
+    to='oatest.abcd.com.cn'  
     type='result'></iq>  
 ```  
   
@@ -693,9 +693,9 @@ XMPPUtils.getConnection().sendStanza(msg);
 1、客户端A发送消息：  
 ```xml  
 <message  
-    from='8049a646c63e65e8@oatest.dgcb.com.cn/phone'  
+    from='8049a646c63e65e8@oatest.abcd.com.cn/phone'  
     id='nCRIE-44'  
-    to='903e652d2334628a@oatest.dgcb.com.cn/phone'  
+    to='903e652d2334628a@oatest.abcd.com.cn/phone'  
     type='chat'>  
     <body>你好，我是包青天</body>  
     <thread>6828a752-cfae-4149-9d4d-c8fb83a17175</thread>  
@@ -705,8 +705,8 @@ XMPPUtils.getConnection().sendStanza(msg);
 客户端收到服务器的回执(msgId相同)：  
 ```xml  
 <message  
-    from="903e652d2334628a@oatest.dgcb.com.cn/phone"  
-    to="8049a646c63e65e8@oatest.dgcb.com.cn/phone">  
+    from="903e652d2334628a@oatest.abcd.com.cn/phone"  
+    to="8049a646c63e65e8@oatest.abcd.com.cn/phone">  
     <received msgId="nCRIE-44"  
               status="1"  
               time="2018-10-20 14:50:16:566"  
@@ -717,9 +717,9 @@ XMPPUtils.getConnection().sendStanza(msg);
 2、然后，客户端B会收到客户端A发送的消息(id相同)：  
 ```xml  
 <message  
-    from="8049a646c63e65e8@oatest.dgcb.com.cn/phone"  
+    from="8049a646c63e65e8@oatest.abcd.com.cn/phone"  
     id="nCRIE-44"  
-    to="903e652d2334628a@oatest.dgcb.com.cn/phone"  
+    to="903e652d2334628a@oatest.abcd.com.cn/phone"  
     type="chat">  
     <body>你好，我是包青天</body>  
     <thread>6828a752-cfae-4149-9d4d-c8fb83a17175</thread>  
@@ -731,11 +731,11 @@ XMPPUtils.getConnection().sendStanza(msg);
 客户端A也会收到的回执消息(id后面拼接了mutisingle)：  
 ```xml  
 <message  
-    from="8049a646c63e65e8@oatest.dgcb.com.cn"  
+    from="8049a646c63e65e8@oatest.abcd.com.cn"  
     id="nCRIE-44mutisingle"  
-    to="8049a646c63e65e8@oatest.dgcb.com.cn"  
+    to="8049a646c63e65e8@oatest.abcd.com.cn"  
     type="chat">  
-    <subject>903e652d2334628a@oatest.dgcb.com.cn</subject>  
+    <subject>903e652d2334628a@oatest.abcd.com.cn</subject>  
     <body>你好，我是包青天</body>  
     <send time="2018-10-20 14:50:16:571"  
           xmlns="icitic:msg:single"/>  
@@ -778,7 +778,7 @@ public class MainActivity extends ListActivity {
           
         etAccount.setText(switchUser ? "8049a646c63e65e8" : "903e652d2334628a");  
         etPassword.setText(switchUser ? "1E6210BB50614D978F4758B2DC9D76C9" : "40C61DE3492C41B1846281833434D997");  
-        etChat.setText(switchUser ? "903e652d2334628a@oatest.dgcb.com.cn/phone" : "8049a646c63e65e8@oatest.dgcb.com.cn/phone");  
+        etChat.setText(switchUser ? "903e652d2334628a@oatest.abcd.com.cn/phone" : "8049a646c63e65e8@oatest.abcd.com.cn/phone");  
         getListView().addFooterView(etAccount);  
         getListView().addFooterView(etPassword);  
         getListView().addFooterView(etChat);//要聊天的用户的ID  
@@ -804,7 +804,7 @@ public class MainActivity extends ListActivity {
                 XMPPUtils.setOnLineStatus();//在线  
                 break;  
             case 3:  
-                XMPPUtils.sendMessage(account + "@oatest.dgcb.com.cn/phone", jid, "你好，我是包青天");//发消息  
+                XMPPUtils.sendMessage(account + "@oatest.abcd.com.cn/phone", jid, "你好，我是包青天");//发消息  
                 break;  
             case 4:  
                 XMPPUtils.getMyFriends();//获取好友信息  
@@ -841,8 +841,8 @@ public class XMPPUtils {
             //初始化XMPPTCPConnection相关配置  
             XMPPTCPConnectionConfiguration configuration = XMPPTCPConnectionConfiguration.builder()  
                     .setUsernameAndPassword(username, password)//设置登录openfire的用户名和密码  
-                    .setServiceName("oatest.dgcb.com.cn")//设置服务器名称  
-                    .setHost("oatest.dgcb.com.cn")//设置主机地址  
+                    .setServiceName("oatest.abcd.com.cn")//设置服务器名称  
+                    .setHost("oatest.abcd.com.cn")//设置主机地址  
                     .setPort(25222)//设置端口号  
                     .setResource("phone") //默认为Smack  
                     .setDebuggerEnabled(true)//是否查看debug日志  
